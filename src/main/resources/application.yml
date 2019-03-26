@@ -1,0 +1,15 @@
+server: 
+    port: 8089
+    servlet:
+      context-path: /Exam
+spring:
+    datasource:
+        username: root
+        password: qwe123
+        url: jdbc:mysql://localhost:3306/examination?serverTimezone=UTC
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        
+mybatis:
+  config-locations=classpath: mybatis-config.xml
+  mapper-locations=classpath: mapper/*.xml 
+
