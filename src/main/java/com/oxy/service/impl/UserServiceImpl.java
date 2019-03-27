@@ -5,9 +5,11 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.oxy.dao.UserMapper;
 import com.oxy.model.User;
 import com.oxy.model.UserExample;
 import com.oxy.model.UserExample.Criteria;
@@ -16,14 +18,14 @@ import com.oxy.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{
-	@Resource
-	private com.oxy.dao.UserMapper UserMapper;
+	@Autowired
+	private UserMapper userMapper;
 	@Override
 	public User getUser(String usercode) {
 		UserExample example = new UserExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andUsercodeEqualTo(usercode);
-		List<User> list = UserMapper.selectByExample(example);
+		List<User> list = userMapper.selectByExample(example);
 		if (list != null && list.size() > 0) {
 			return list.get(0);
 		}
@@ -36,7 +38,7 @@ public class UserServiceImpl implements UserService{
 		criteria.andUsercodeEqualTo(usercode);
 		criteria.andPasswordEqualTo(password);
 		criteria.andRoleEqualTo(role);
-		List<User> list = UserMapper.selectByExample(example);
+		List<User> list = userMapper.selectByExample(example);
 		if (list != null && list.size() > 0) {
 			User user = list.get(0);
 			return user;

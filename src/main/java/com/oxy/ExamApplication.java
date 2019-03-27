@@ -6,8 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(value="com.oxy")
-@MapperScan(value = "com.oxy.dao")
 public class ExamApplication {
 
 	public static void main(String[] args) {
