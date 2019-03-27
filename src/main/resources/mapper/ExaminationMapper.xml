@@ -103,4 +103,106 @@
       Name = #{name,jdbcType=VARCHAR}
     where ExaminationID = #{examinationid,jdbcType=INTEGER}
   </update>
+  <resultMap id="BaseResultMap" type="com.oxy.model.Examination">
+    <id column="ExaminationID" jdbcType="INTEGER" property="examinationid" />
+    <result column="PaperID" jdbcType="INTEGER" property="paperid" />
+    <result column="Subject" jdbcType="VARCHAR" property="subject" />
+    <result column="BeginTime" jdbcType="TIMESTAMP" property="begintime" />
+    <result column="Duration" jdbcType="INTEGER" property="duration" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ExaminationID, PaperID, Subject, BeginTime, Duration, Name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from examination
+    where ExaminationID = #{examinationid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from examination
+    where ExaminationID = #{examinationid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.oxy.model.Examination">
+    insert into examination (ExaminationID, PaperID, Subject, 
+      BeginTime, Duration, Name
+      )
+    values (#{examinationid,jdbcType=INTEGER}, #{paperid,jdbcType=INTEGER}, #{subject,jdbcType=VARCHAR}, 
+      #{begintime,jdbcType=TIMESTAMP}, #{duration,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.oxy.model.Examination">
+    insert into examination
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="examinationid != null">
+        ExaminationID,
+      </if>
+      <if test="paperid != null">
+        PaperID,
+      </if>
+      <if test="subject != null">
+        Subject,
+      </if>
+      <if test="begintime != null">
+        BeginTime,
+      </if>
+      <if test="duration != null">
+        Duration,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="examinationid != null">
+        #{examinationid,jdbcType=INTEGER},
+      </if>
+      <if test="paperid != null">
+        #{paperid,jdbcType=INTEGER},
+      </if>
+      <if test="subject != null">
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="begintime != null">
+        #{begintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="duration != null">
+        #{duration,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.oxy.model.Examination">
+    update examination
+    <set>
+      <if test="paperid != null">
+        PaperID = #{paperid,jdbcType=INTEGER},
+      </if>
+      <if test="subject != null">
+        Subject = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="begintime != null">
+        BeginTime = #{begintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="duration != null">
+        Duration = #{duration,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ExaminationID = #{examinationid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.oxy.model.Examination">
+    update examination
+    set PaperID = #{paperid,jdbcType=INTEGER},
+      Subject = #{subject,jdbcType=VARCHAR},
+      BeginTime = #{begintime,jdbcType=TIMESTAMP},
+      Duration = #{duration,jdbcType=INTEGER},
+      Name = #{name,jdbcType=VARCHAR}
+    where ExaminationID = #{examinationid,jdbcType=INTEGER}
+  </update>
 </mapper>

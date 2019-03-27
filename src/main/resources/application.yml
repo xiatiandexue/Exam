@@ -1,5 +1,5 @@
 server: 
-    port: 8089
+    port: 8088
     servlet:
       context-path: /Exam
 spring:
@@ -10,6 +10,8 @@ spring:
         driver-class-name: com.mysql.cj.jdbc.Driver
         
 mybatis:
-  config-locations=classpath: mybatis-config.xml
-  mapper-locations=classpath: mapper/*.xml 
+  configuration:
+    mapper-locations: classpath*:mapper/*Mapper.xml
+    config-locations: classpath:mybatis.xml
 
+#  mapper-locations=classpath: mapper/*.xml 

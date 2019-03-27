@@ -3,8 +3,10 @@ package com.oxy.dao;
 import com.oxy.model.User;
 import com.oxy.model.UserExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface UserMapper {
     long countByExample(UserExample example);
 
