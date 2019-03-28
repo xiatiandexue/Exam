@@ -21,10 +21,7 @@ import com.oxy.dto.UserLoginDto;
 public class LoginController {
 	@Resource
     private UserService userService;
-	private String loginTime;
-	String usercode;
-	String name;
-	String role;
+	
 	@RequestMapping(value="/login",method = RequestMethod.POST,produces={
 	"application/json;charset=utf-8"})
 //	public String login(){
@@ -40,10 +37,14 @@ public class LoginController {
 		if (Strings.isNullOrEmpty(userLoginReq.getRole())) {
 			return new JsonResult(-2,"用户类型不能为空");
 		}
-//		UserLoginDto userLoginResp = new UserLoginDto(usercode, name, loginTime, role);
-		userService.login(userLoginReq.getUsercode(),userLoginReq.getPassword(),userLoginReq.getRole());
+		if(userService.login(userLoginReq.getUsercode(),userLoginReq.getPassword(),userLoginReq.getRole()) != null) {
+			String name = userService.getUser(userLoginReq.getUsercode()).toString();
+			UserLoginDto userLoginResp = new UserLoginDto(userLoginReq.getUsercode(),name, userLoginReq.getRole());
+			return new JsonResult(0,userLoginResp,"登录成功");
+		} else {
+			return new JsonResult(-2,"用户名、密码或用户类型有误，请重新输入");
+		}
 		
-		return new JsonResult(0, "登录成功");
 	}
 	
 

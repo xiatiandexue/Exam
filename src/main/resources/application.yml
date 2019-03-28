@@ -1,12 +1,12 @@
 server: 
-    port: 8092
+    port: 8090
     servlet:
       context-path: /Exam
 spring:
     datasource:
         username: root
-        password: root
-        url: jdbc:mysql://localhost:3307/examination?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+        password: qwe123
+        url: jdbc:mysql://localhost:3306/examination?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
         driver-class-name: com.mysql.cj.jdbc.Driver
         
 mybatis:
