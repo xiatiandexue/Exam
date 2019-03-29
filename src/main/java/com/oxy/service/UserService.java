@@ -20,5 +20,7 @@ public interface UserService {
 	void insert(AddUserVO vo);
 	
 	void update(UpdateUserVO vo);
+	
+	void delete(String usercode);
 
 }

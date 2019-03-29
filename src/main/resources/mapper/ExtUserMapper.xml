@@ -4,7 +4,8 @@
 <mapper namespace="com.oxy.dao.ext.ExtUserMapper">
   <select id="listPage" parameterType="com.oxy.dto.PageUserDTO"
     resultType="com.oxy.dto.PageUserDTO">
-    select UserCode as usercode,
+    select UserID as userid,
+    UserCode as usercode,
     Name as name,
     Role as role
     FROM user
@@ -19,6 +20,9 @@
         </if>
         <if test="param.usercode != null">
           and UserCode = #{param.usercode}
+        </if>
+        <if test="param.userid != null">
+          and UserCode = #{param.userid}
         </if>
       </if>
     </where>

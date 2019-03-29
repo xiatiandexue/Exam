@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.oxy.service.UserService;
 import com.oxy.utils.JsonResult;
 import com.oxy.vo.user.AddUserVO;
+import com.oxy.vo.user.DeleteUserVO;
 import com.oxy.vo.user.PageUserVO;
 import com.oxy.vo.user.UpdateUserVO;
 
@@ -39,7 +40,13 @@ public class UserController {
 	"application/json;charset=utf-8"})
 	public JsonResult update(@Validated @RequestBody UpdateUserVO vo) {
 		userService.update(vo);
-		System.out.println(vo.getName());
+		return new JsonResult(0,"成功");
+	}
+	
+	@RequestMapping(value="/",method = RequestMethod.DELETE,produces={
+	"application/json;charset=utf-8"})
+	public JsonResult delete(@RequestBody DeleteUserVO vo) {
+		userService.delete(vo.getUsercode());
 		return new JsonResult(0,"成功");
 	}
 }

@@ -95,15 +95,22 @@ public class UserServiceImpl implements UserService{
 				e.printStackTrace();
 			}
 		}
-		System.out.println(user.getName());
 		User sysUser = vo.toUser();
 		if (sysUser == null) {
 			return ;
 		}
-		System.out.println(user.getName());
-//		validatePassword(vo.getPassword());//密码合法性校验
 		userMapper.updateByPrimaryKeySelective(sysUser);
 	}
+	
+	@Override
+	public void delete(String usercode) {
+		
+		UserExample example = new UserExample();
+		example.createCriteria().andUsercodeEqualTo(usercode);
+		userMapper.deleteByExample(example);
+	}
+	
+	
 	/**
 	 * 密码合法性校验
 	 * @param password
