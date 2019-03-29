@@ -1,4 +1,4 @@
-package com.oxy.vo;
+package com.oxy.vo.user;
 
 public class UserLoginVO {
 	private String usercode;

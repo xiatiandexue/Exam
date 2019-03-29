@@ -12,7 +12,7 @@ import com.google.common.base.Strings;
 import com.oxy.model.User;
 import com.oxy.service.UserService;
 import com.oxy.utils.JsonResult;
-import com.oxy.vo.UserLoginVO;
+import com.oxy.vo.user.UserLoginVO;
 import com.oxy.dto.UserLoginDto;
 
 
@@ -38,7 +38,7 @@ public class LoginController {
 			return new JsonResult(-2,"用户类型不能为空");
 		}
 		if(userService.login(userLoginReq.getUsercode(),userLoginReq.getPassword(),userLoginReq.getRole()) != null) {
-			String name = userService.getUser(userLoginReq.getUsercode()).toString();
+			String name = userService.getUser(userLoginReq.getUsercode()).getName();
 			UserLoginDto userLoginResp = new UserLoginDto(userLoginReq.getUsercode(),name, userLoginReq.getRole());
 			return new JsonResult(0,userLoginResp,"登录成功");
 		} else {
@@ -46,7 +46,6 @@ public class LoginController {
 		}
 		
 	}
-	
 
     @RequestMapping(value="/showUser",method = RequestMethod.POST,produces={
 	"application/json;charset=utf-8"})

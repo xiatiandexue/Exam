@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oxy.dao.ext.ExtUserMapper">
+  <select id="listPage" parameterType="com.oxy.dto.PageUserDTO"
+    resultType="com.oxy.dto.PageUserDTO">
+    select UserCode as usercode,
+    Name as name,
+    Role as role
+    FROM user
+    <where>
+      <if test="param != null">
+        <if test="param.name != null and param.name!='' ">
+          <bind name="pattern" value="'%' + param.name + '%'"/>
+          and Name like #{pattern}
+        </if>
+        <if test="param.role != null and param.role!=''">
+          and Role = #{param.role}
+        </if>
+        <if test="param.usercode != null">
+          and UserCode = #{param.usercode}
+        </if>
+      </if>
+    </where>
+  </select>
+
+
+</mapper>
