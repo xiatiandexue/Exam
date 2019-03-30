@@ -20,6 +20,7 @@ import com.oxy.model.User;
 import com.oxy.model.UserExample;
 import com.oxy.model.UserExample.Criteria;
 import com.oxy.service.UserService;
+import com.oxy.utils.ServiceException;
 import com.oxy.vo.user.AddUserVO;
 import com.oxy.vo.user.PageUserVO;
 import com.oxy.vo.user.UpdateUserVO;
@@ -71,14 +72,9 @@ public class UserServiceImpl implements UserService{
 	public void insert(AddUserVO vo) {
 
 		if (getUser(vo.getUsercode()) != null) {
-			try {
-				throw new Exception("账号已存在");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			throw new ServiceException(-2,"账号已存在");
 		}
-//		validatePassword(vo.getPassword());//密码合法性校验
+		validatePassword(vo.getPassword());//密码合法性校验
 		User user = vo.toUser();
 		userMapper.insert(user);
 		
@@ -88,12 +84,7 @@ public class UserServiceImpl implements UserService{
 	public void update(UpdateUserVO vo) {
 		User user = getUser(vo.getUsercode());
 		if(user==null){
-			try {
-				throw new Exception("当前无此用户信息，请刷新页面");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			throw new ServiceException(-2,"当前无此用户信息，请刷新页面");
 		}
 		User sysUser = vo.toUser();
 		if (sysUser == null) {
@@ -115,17 +106,17 @@ public class UserServiceImpl implements UserService{
 	 * 密码合法性校验
 	 * @param password
 	 */
-//	private void validatePassword(String password){
-//		String rex = "^(?=.*[0-9].*)(?=.*[A-Z].*)(?=.*[a-z].*).{8,16}$";
-//		if(password != null){
-//			if(password.length() < 8 ||password.length() > 16){
-//				throw new ServerException("密码长度必须在8~16位");
-//			}
-//			if(!password.matches(rex)){
-//				throw new ServerException("密码必须是包含英文大小字母和数字的组合");
-//			}
-//		}
-//
-//	}
+	private void validatePassword(String password){
+		String rex = "^(?=.*[0-9].*)(?=.*[A-Z].*)(?=.*[a-z].*).{8,16}$";
+		if(password != null){
+			if(password.length() < 8 ||password.length() > 16){
+				throw new ServiceException(-2,"密码长度必须在8~16位");
+			}
+			if(!password.matches(rex)){
+				throw new ServiceException(-2,"密码必须是包含英文大小字母和数字的组合");
+			}
+		}
+
+	}
 	
 }
