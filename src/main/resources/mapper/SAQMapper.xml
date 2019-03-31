@@ -8,6 +8,7 @@
     <result column="Subject" jdbcType="VARCHAR" property="subject" />
     <result column="Chapter" jdbcType="VARCHAR" property="chapter" />
     <result column="Difficulty" jdbcType="INTEGER" property="difficulty" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createuser" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    SAQID, SAQ, Score, Subject, Chapter, Difficulty
+    SAQID, SAQ, Score, Subject, Chapter, Difficulty, CreateUser
   </sql>
   <select id="selectByExample" parameterType="com.oxy.model.SAQExample" resultMap="BaseResultMap">
     select
@@ -102,11 +103,11 @@
   </delete>
   <insert id="insert" parameterType="com.oxy.model.SAQ">
     insert into saq (SAQID, SAQ, Score, 
-      Subject, Chapter, Difficulty
-      )
+      Subject, Chapter, Difficulty, 
+      CreateUser)
     values (#{saqid,jdbcType=INTEGER}, #{saq,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, 
-      #{subject,jdbcType=VARCHAR}, #{chapter,jdbcType=VARCHAR}, #{difficulty,jdbcType=INTEGER}
-      )
+      #{subject,jdbcType=VARCHAR}, #{chapter,jdbcType=VARCHAR}, #{difficulty,jdbcType=INTEGER}, 
+      #{createuser,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.oxy.model.SAQ">
     insert into saq
@@ -129,6 +130,9 @@
       <if test="difficulty != null">
         Difficulty,
       </if>
+      <if test="createuser != null">
+        CreateUser,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="saqid != null">
@@ -148,6 +152,9 @@
       </if>
       <if test="difficulty != null">
         #{difficulty,jdbcType=INTEGER},
+      </if>
+      <if test="createuser != null">
+        #{createuser,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -178,6 +185,9 @@
       <if test="record.difficulty != null">
         Difficulty = #{record.difficulty,jdbcType=INTEGER},
       </if>
+      <if test="record.createuser != null">
+        CreateUser = #{record.createuser,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -190,7 +200,8 @@
       Score = #{record.score,jdbcType=INTEGER},
       Subject = #{record.subject,jdbcType=VARCHAR},
       Chapter = #{record.chapter,jdbcType=VARCHAR},
-      Difficulty = #{record.difficulty,jdbcType=INTEGER}
+      Difficulty = #{record.difficulty,jdbcType=INTEGER},
+      CreateUser = #{record.createuser,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -213,6 +224,9 @@
       <if test="difficulty != null">
         Difficulty = #{difficulty,jdbcType=INTEGER},
       </if>
+      <if test="createuser != null">
+        CreateUser = #{createuser,jdbcType=VARCHAR},
+      </if>
     </set>
     where SAQID = #{saqid,jdbcType=INTEGER}
   </update>
@@ -222,7 +236,8 @@
       Score = #{score,jdbcType=INTEGER},
       Subject = #{subject,jdbcType=VARCHAR},
       Chapter = #{chapter,jdbcType=VARCHAR},
-      Difficulty = #{difficulty,jdbcType=INTEGER}
+      Difficulty = #{difficulty,jdbcType=INTEGER},
+      CreateUser = #{createuser,jdbcType=VARCHAR}
     where SAQID = #{saqid,jdbcType=INTEGER}
   </update>
 </mapper>

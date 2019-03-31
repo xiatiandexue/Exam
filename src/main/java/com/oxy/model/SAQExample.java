@@ -493,6 +493,76 @@ public class SAQExample {
             addCriterion("Difficulty not between", value1, value2, "difficulty");
             return (Criteria) this;
         }
+
+        public Criteria andCreateuserIsNull() {
+            addCriterion("CreateUser is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateuserIsNotNull() {
+            addCriterion("CreateUser is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateuserEqualTo(String value) {
+            addCriterion("CreateUser =", value, "createuser");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateuserNotEqualTo(String value) {
+            addCriterion("CreateUser <>", value, "createuser");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateuserGreaterThan(String value) {
+            addCriterion("CreateUser >", value, "createuser");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateuserGreaterThanOrEqualTo(String value) {
+            addCriterion("CreateUser >=", value, "createuser");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateuserLessThan(String value) {
+            addCriterion("CreateUser <", value, "createuser");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateuserLessThanOrEqualTo(String value) {
+            addCriterion("CreateUser <=", value, "createuser");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateuserLike(String value) {
+            addCriterion("CreateUser like", value, "createuser");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateuserNotLike(String value) {
+            addCriterion("CreateUser not like", value, "createuser");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateuserIn(List<String> values) {
+            addCriterion("CreateUser in", values, "createuser");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateuserNotIn(List<String> values) {
+            addCriterion("CreateUser not in", values, "createuser");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateuserBetween(String value1, String value2) {
+            addCriterion("CreateUser between", value1, value2, "createuser");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateuserNotBetween(String value1, String value2) {
+            addCriterion("CreateUser not between", value1, value2, "createuser");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

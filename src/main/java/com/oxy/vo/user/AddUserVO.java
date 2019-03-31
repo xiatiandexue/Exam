@@ -6,9 +6,11 @@ import com.oxy.model.User;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Setter
 @Getter
+@ToString
 public class AddUserVO {
 	@NotBlank
 	private String usercode;

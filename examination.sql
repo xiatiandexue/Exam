@@ -11,7 +11,7 @@
  Target Server Version : 80011
  File Encoding         : 65001
 
- Date: 27/03/2019 16:59:28
+ Date: 31/03/2019 22:08:06
 */
 
 SET NAMES utf8mb4;
@@ -28,6 +28,7 @@ CREATE TABLE `examination`  (
   `BeginTime` datetime(6) DEFAULT NULL,
   `Duration` int(10) DEFAULT NULL,
   `Name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `CreateUser` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`ExaminationID`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
@@ -61,6 +62,7 @@ CREATE TABLE `saq`  (
   `Subject` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `Chapter` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `Difficulty` int(10) DEFAULT NULL COMMENT '1-	easy\r\n2-	normal\r\n3-	hard\r\n',
+  `CreateUser` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`SAQID`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
@@ -94,8 +96,15 @@ CREATE TABLE `singleselect`  (
   `Subject` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `Chapter` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `Difficulty` int(10) NOT NULL COMMENT '1-easy  2-normal  3-hard',
+  `CreateUser` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`QuestionID`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of singleselect
+-- ----------------------------
+INSERT INTO `singleselect` VALUES (1, '例二', '选项一', '选项二', '选项三', '选项四', '选项一', 10, '语文', '第一章', 1, '教师');
+INSERT INTO `singleselect` VALUES (4, '题目三', '选项一', '选项二', '选项三', '选项四', '选项一', 20, '历史', '第一章', 2, 'admin');
 
 -- ----------------------------
 -- Table structure for user
@@ -108,11 +117,17 @@ CREATE TABLE `user`  (
   `Password` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `Role` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`UserID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'admin', 'admin', '12345', 'admin');
+INSERT INTO `user` VALUES (1, 'admin', 'admin', '12345', '管理员');
+INSERT INTO `user` VALUES (2, '201901', '李丽', '12345', '学生');
+INSERT INTO `user` VALUES (3, '201902', '李玲', '12345', '学生');
+INSERT INTO `user` VALUES (4, '1201901', '王敏', '12345', '教师');
+INSERT INTO `user` VALUES (5, '1201902', '黄亮', '12345', '教师');
+INSERT INTO `user` VALUES (14, '201904', '杨建军', '123456', '学生');
+INSERT INTO `user` VALUES (18, '2201904', '王浩', 'Qw123456', '教师');
 
 SET FOREIGN_KEY_CHECKS = 1;

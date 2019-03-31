@@ -13,6 +13,8 @@ public class SAQ {
 
     private Integer difficulty;
 
+    private String createuser;
+
     public Integer getSaqid() {
         return saqid;
     }
@@ -59,5 +61,13 @@ public class SAQ {
 
     public void setDifficulty(Integer difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public String getCreateuser() {
+        return createuser;
+    }
+
+    public void setCreateuser(String createuser) {
+        this.createuser = createuser == null ? null : createuser.trim();
     }
 }

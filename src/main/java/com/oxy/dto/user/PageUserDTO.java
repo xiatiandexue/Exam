@@ -1,4 +1,4 @@
-package com.oxy.dto;
+package com.oxy.dto.user;
 
 import lombok.Builder;
 import lombok.Data;

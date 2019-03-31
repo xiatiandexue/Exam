@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.oxy.dao.ext.ExtSingleselectMapper">
+  	<select id="listPage" parameterType="com.oxy.dto.itemBank.PageSelectDTO"
+    	resultType="com.oxy.dto.itemBank.PageSelectDTO">
+    	select QuestionID as questionid,
+    	Question as question,
+    	ChoiceOne as choiceone,
+    	ChoiceTwo as choicetwo,
+    	ChoiceThree as choicethree,
+    	ChoiceFour as choicefour,
+    	Answer as answer,
+    	Score as score,
+    	Subject as subject,
+    	Chapter as chapter,
+    	Difficulty as difficulty,
+    	CreateUser as createuser
+    	From singleselect
+    	<where>
+    		<if test="param != null">
+    			<if test="param.question != null and param.question != '' ">
+    				<bind name="pattern" value="'%' + param.question + '%'"/>
+    				and Question like #{pattern} 
+    			</if>
+    			<if test="param.subject != null and param.subject != '' ">
+    				<bind name="pattern" value="'%' + param.subject + '%'"/>
+    				and Subject like #{pattern}
+    			</if>
+    			<if test="param.chapter != null and param.chapter != '' ">
+    				<bind name="pattern" value="'%' + param.chapter + '%'"/>
+    				and Chapter like #{pattern}
+    			</if>
+    		</if>
+    	</where>
+    	
+    </select>
+  </mapper>

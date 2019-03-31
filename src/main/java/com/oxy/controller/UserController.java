@@ -33,20 +33,20 @@ public class UserController {
 	"application/json;charset=utf-8"})
 	public JsonResult add(@Validated @RequestBody AddUserVO vo) {
 		userService.insert(vo);
-		return new JsonResult(0,"成功");
+		return new JsonResult(0,"添加成功");
 	}
 	
 	@RequestMapping(value="/",method = RequestMethod.PUT,produces={
 	"application/json;charset=utf-8"})
 	public JsonResult update(@Validated @RequestBody UpdateUserVO vo) {
 		userService.update(vo);
-		return new JsonResult(0,"成功");
+		return new JsonResult(0,"更新成功");
 	}
 	
 	@RequestMapping(value="/",method = RequestMethod.DELETE,produces={
 	"application/json;charset=utf-8"})
 	public JsonResult delete(@RequestBody DeleteUserVO vo) {
 		userService.delete(vo.getUsercode());
-		return new JsonResult(0,"成功");
+		return new JsonResult(0,"删除成功");
 	}
 }

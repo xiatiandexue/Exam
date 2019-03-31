@@ -23,6 +23,8 @@ public class Singleselect {
 
     private Integer difficulty;
 
+    private String createuser;
+
     public Integer getQuestionid() {
         return questionid;
     }
@@ -109,5 +111,13 @@ public class Singleselect {
 
     public void setDifficulty(Integer difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public String getCreateuser() {
+        return createuser;
+    }
+
+    public void setCreateuser(String createuser) {
+        this.createuser = createuser == null ? null : createuser.trim();
     }
 }

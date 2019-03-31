@@ -15,6 +15,8 @@ public class Examination {
 
     private String name;
 
+    private String createuser;
+
     public Integer getExaminationid() {
         return examinationid;
     }
@@ -61,5 +63,13 @@ public class Examination {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getCreateuser() {
+        return createuser;
+    }
+
+    public void setCreateuser(String createuser) {
+        this.createuser = createuser == null ? null : createuser.trim();
     }
 }

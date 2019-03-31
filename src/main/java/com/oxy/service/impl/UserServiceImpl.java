@@ -1,21 +1,16 @@
 package com.oxy.service.impl;
 
-import java.rmi.ServerException;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.oxy.dao.UserMapper;
 import com.oxy.dao.ext.ExtUserMapper;
-import com.oxy.dto.PageUserDTO;
-import com.oxy.dto.PageUserDTO.PageUserDTOBuilder;
+import com.oxy.dto.user.PageUserDTO;
 import com.oxy.model.User;
 import com.oxy.model.UserExample;
 import com.oxy.model.UserExample.Criteria;
@@ -28,7 +23,7 @@ import com.oxy.vo.user.UpdateUserVO;
 
 @Service
 public class UserServiceImpl implements UserService{
-	@Autowired
+	@Resource
 	private UserMapper userMapper;
 	@Resource
 	private ExtUserMapper extUserMapper;
@@ -68,7 +63,7 @@ public class UserServiceImpl implements UserService{
 		PageInfo<PageUserDTO> pageInfo = new PageInfo<>(extUserMapper.listPage(dto));
 		return pageInfo;
 	}
-	
+	@Override
 	public void insert(AddUserVO vo) {
 
 		if (getUser(vo.getUsercode()) != null) {
@@ -95,7 +90,9 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public void delete(String usercode) {
-		
+		if (usercode.contains("admin")) {
+			throw new ServiceException(-2,"超级管理员不可删除");
+		}
 		UserExample example = new UserExample();
 		example.createCriteria().andUsercodeEqualTo(usercode);
 		userMapper.deleteByExample(example);

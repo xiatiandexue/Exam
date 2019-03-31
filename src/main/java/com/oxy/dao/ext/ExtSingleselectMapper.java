@@ -1,0 +1,12 @@
+package com.oxy.dao.ext;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import com.oxy.dto.itemBank.PageSelectDTO;
+@Mapper
+public interface ExtSingleselectMapper {
+	List<PageSelectDTO> listPage(@Param("param") PageSelectDTO pageSelectDTO);
+}

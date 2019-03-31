@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oxy.dao.ext.ExtUserMapper">
-  <select id="listPage" parameterType="com.oxy.dto.PageUserDTO"
-    resultType="com.oxy.dto.PageUserDTO">
+  <select id="listPage" parameterType="com.oxy.dto.user.PageUserDTO"
+    resultType="com.oxy.dto.user.PageUserDTO">
     select UserID as userid,
     UserCode as usercode,
     Name as name,
