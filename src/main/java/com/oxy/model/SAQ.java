@@ -3,7 +3,7 @@ package com.oxy.model;
 public class SAQ {
     private Integer saqid;
 
-    private String saq;
+    private String question;
 
     private Integer score;
 
@@ -15,6 +15,8 @@ public class SAQ {
 
     private String createuser;
 
+    private String answer;
+
     public Integer getSaqid() {
         return saqid;
     }
@@ -23,12 +25,12 @@ public class SAQ {
         this.saqid = saqid;
     }
 
-    public String getSaq() {
-        return saq;
+    public String getQuestion() {
+        return question;
     }
 
-    public void setSaq(String saq) {
-        this.saq = saq == null ? null : saq.trim();
+    public void setQuestion(String question) {
+        this.question = question == null ? null : question.trim();
     }
 
     public Integer getScore() {
@@ -69,5 +71,13 @@ public class SAQ {
 
     public void setCreateuser(String createuser) {
         this.createuser = createuser == null ? null : createuser.trim();
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer == null ? null : answer.trim();
     }
 }

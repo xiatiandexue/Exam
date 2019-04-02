@@ -69,7 +69,7 @@ public class UserServiceImpl implements UserService{
 		if (getUser(vo.getUsercode()) != null) {
 			throw new ServiceException(-2,"账号已存在");
 		}
-		validatePassword(vo.getPassword());//密码合法性校验
+//		validatePassword(vo.getPassword());//密码合法性校验
 		User user = vo.toUser();
 		userMapper.insert(user);
 		
@@ -85,6 +85,7 @@ public class UserServiceImpl implements UserService{
 		if (sysUser == null) {
 			return ;
 		}
+		validatePassword(vo.getPassword());//密码合法性校验
 		userMapper.updateByPrimaryKeySelective(sysUser);
 	}
 	

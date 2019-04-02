@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.oxy.dao.ext.ExtSAQMapper">
+  	<select id="listPage" parameterType="com.oxy.dto.itemBank.PageSaqDTO"
+    	resultType="com.oxy.dto.itemBank.PageSaqDTO">
+    	select SAQID as saqid,
+    	Question as question,
+    	Score as score,
+    	Subject as subject,
+    	Chapter as chapter,
+    	Difficulty as difficulty,
+    	CreateUser as createuser,
+    	Answer as answer
+    	From saq
+    	<where>
+    		<if test="param != null">
+    			<if test="param.question != null and param.question != '' ">
+    				<bind name="pattern" value="'%' + param.question + '%'"/>
+    				and Question like #{pattern} 
+    			</if>
+    		</if>
+    		<if test="param != null">
+    			<if test="param.subject != null and param.subject != '' ">
+    				<bind name="pattern" value="'%' + param.subject + '%'"/>
+    				and Subject like #{pattern} 
+    			</if>
+    		</if>
+    		<if test="param != null">
+    			<if test="param.chapter != null and param.chapter != '' ">
+    				<bind name="pattern" value="'%' + param.chapter + '%'"/>
+    				and Chapter like #{pattern} 
+    			</if>
+    		</if>
+    		<if test="param != null">
+    			<if test="param.createuser != null and param.createuser != '' ">
+    				<bind name="pattern" value="'%' + param.createuser + '%'"/>
+    				and CreateUser like #{pattern} 
+    			</if>
+    		</if>
+    	</where>
+    </select>	
+  </mapper>

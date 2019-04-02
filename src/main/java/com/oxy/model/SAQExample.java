@@ -164,73 +164,73 @@ public class SAQExample {
             return (Criteria) this;
         }
 
-        public Criteria andSaqIsNull() {
-            addCriterion("SAQ is null");
+        public Criteria andQuestionIsNull() {
+            addCriterion("Question is null");
             return (Criteria) this;
         }
 
-        public Criteria andSaqIsNotNull() {
-            addCriterion("SAQ is not null");
+        public Criteria andQuestionIsNotNull() {
+            addCriterion("Question is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSaqEqualTo(String value) {
-            addCriterion("SAQ =", value, "saq");
+        public Criteria andQuestionEqualTo(String value) {
+            addCriterion("Question =", value, "question");
             return (Criteria) this;
         }
 
-        public Criteria andSaqNotEqualTo(String value) {
-            addCriterion("SAQ <>", value, "saq");
+        public Criteria andQuestionNotEqualTo(String value) {
+            addCriterion("Question <>", value, "question");
             return (Criteria) this;
         }
 
-        public Criteria andSaqGreaterThan(String value) {
-            addCriterion("SAQ >", value, "saq");
+        public Criteria andQuestionGreaterThan(String value) {
+            addCriterion("Question >", value, "question");
             return (Criteria) this;
         }
 
-        public Criteria andSaqGreaterThanOrEqualTo(String value) {
-            addCriterion("SAQ >=", value, "saq");
+        public Criteria andQuestionGreaterThanOrEqualTo(String value) {
+            addCriterion("Question >=", value, "question");
             return (Criteria) this;
         }
 
-        public Criteria andSaqLessThan(String value) {
-            addCriterion("SAQ <", value, "saq");
+        public Criteria andQuestionLessThan(String value) {
+            addCriterion("Question <", value, "question");
             return (Criteria) this;
         }
 
-        public Criteria andSaqLessThanOrEqualTo(String value) {
-            addCriterion("SAQ <=", value, "saq");
+        public Criteria andQuestionLessThanOrEqualTo(String value) {
+            addCriterion("Question <=", value, "question");
             return (Criteria) this;
         }
 
-        public Criteria andSaqLike(String value) {
-            addCriterion("SAQ like", value, "saq");
+        public Criteria andQuestionLike(String value) {
+            addCriterion("Question like", value, "question");
             return (Criteria) this;
         }
 
-        public Criteria andSaqNotLike(String value) {
-            addCriterion("SAQ not like", value, "saq");
+        public Criteria andQuestionNotLike(String value) {
+            addCriterion("Question not like", value, "question");
             return (Criteria) this;
         }
 
-        public Criteria andSaqIn(List<String> values) {
-            addCriterion("SAQ in", values, "saq");
+        public Criteria andQuestionIn(List<String> values) {
+            addCriterion("Question in", values, "question");
             return (Criteria) this;
         }
 
-        public Criteria andSaqNotIn(List<String> values) {
-            addCriterion("SAQ not in", values, "saq");
+        public Criteria andQuestionNotIn(List<String> values) {
+            addCriterion("Question not in", values, "question");
             return (Criteria) this;
         }
 
-        public Criteria andSaqBetween(String value1, String value2) {
-            addCriterion("SAQ between", value1, value2, "saq");
+        public Criteria andQuestionBetween(String value1, String value2) {
+            addCriterion("Question between", value1, value2, "question");
             return (Criteria) this;
         }
 
-        public Criteria andSaqNotBetween(String value1, String value2) {
-            addCriterion("SAQ not between", value1, value2, "saq");
+        public Criteria andQuestionNotBetween(String value1, String value2) {
+            addCriterion("Question not between", value1, value2, "question");
             return (Criteria) this;
         }
 
@@ -561,6 +561,76 @@ public class SAQExample {
 
         public Criteria andCreateuserNotBetween(String value1, String value2) {
             addCriterion("CreateUser not between", value1, value2, "createuser");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnswerIsNull() {
+            addCriterion("Answer is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnswerIsNotNull() {
+            addCriterion("Answer is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnswerEqualTo(String value) {
+            addCriterion("Answer =", value, "answer");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnswerNotEqualTo(String value) {
+            addCriterion("Answer <>", value, "answer");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnswerGreaterThan(String value) {
+            addCriterion("Answer >", value, "answer");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnswerGreaterThanOrEqualTo(String value) {
+            addCriterion("Answer >=", value, "answer");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnswerLessThan(String value) {
+            addCriterion("Answer <", value, "answer");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnswerLessThanOrEqualTo(String value) {
+            addCriterion("Answer <=", value, "answer");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnswerLike(String value) {
+            addCriterion("Answer like", value, "answer");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnswerNotLike(String value) {
+            addCriterion("Answer not like", value, "answer");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnswerIn(List<String> values) {
+            addCriterion("Answer in", values, "answer");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnswerNotIn(List<String> values) {
+            addCriterion("Answer not in", values, "answer");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnswerBetween(String value1, String value2) {
+            addCriterion("Answer between", value1, value2, "answer");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnswerNotBetween(String value1, String value2) {
+            addCriterion("Answer not between", value1, value2, "answer");
             return (Criteria) this;
         }
     }

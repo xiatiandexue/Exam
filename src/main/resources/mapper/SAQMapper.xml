@@ -3,12 +3,13 @@
 <mapper namespace="com.oxy.dao.SAQMapper">
   <resultMap id="BaseResultMap" type="com.oxy.model.SAQ">
     <id column="SAQID" jdbcType="INTEGER" property="saqid" />
-    <result column="SAQ" jdbcType="VARCHAR" property="saq" />
+    <result column="Question" jdbcType="VARCHAR" property="question" />
     <result column="Score" jdbcType="INTEGER" property="score" />
     <result column="Subject" jdbcType="VARCHAR" property="subject" />
     <result column="Chapter" jdbcType="VARCHAR" property="chapter" />
     <result column="Difficulty" jdbcType="INTEGER" property="difficulty" />
     <result column="CreateUser" jdbcType="VARCHAR" property="createuser" />
+    <result column="Answer" jdbcType="VARCHAR" property="answer" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    SAQID, SAQ, Score, Subject, Chapter, Difficulty, CreateUser
+    SAQID, Question, Score, Subject, Chapter, Difficulty, CreateUser, Answer
   </sql>
   <select id="selectByExample" parameterType="com.oxy.model.SAQExample" resultMap="BaseResultMap">
     select
@@ -102,12 +103,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.oxy.model.SAQ">
-    insert into saq (SAQID, SAQ, Score, 
+    insert into saq (SAQID, Question, Score, 
       Subject, Chapter, Difficulty, 
-      CreateUser)
-    values (#{saqid,jdbcType=INTEGER}, #{saq,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, 
+      CreateUser, Answer)
+    values (#{saqid,jdbcType=INTEGER}, #{question,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, 
       #{subject,jdbcType=VARCHAR}, #{chapter,jdbcType=VARCHAR}, #{difficulty,jdbcType=INTEGER}, 
-      #{createuser,jdbcType=VARCHAR})
+      #{createuser,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.oxy.model.SAQ">
     insert into saq
@@ -115,8 +116,8 @@
       <if test="saqid != null">
         SAQID,
       </if>
-      <if test="saq != null">
-        SAQ,
+      <if test="question != null">
+        Question,
       </if>
       <if test="score != null">
         Score,
@@ -133,13 +134,16 @@
       <if test="createuser != null">
         CreateUser,
       </if>
+      <if test="answer != null">
+        Answer,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="saqid != null">
         #{saqid,jdbcType=INTEGER},
       </if>
-      <if test="saq != null">
-        #{saq,jdbcType=VARCHAR},
+      <if test="question != null">
+        #{question,jdbcType=VARCHAR},
       </if>
       <if test="score != null">
         #{score,jdbcType=INTEGER},
@@ -156,6 +160,9 @@
       <if test="createuser != null">
         #{createuser,jdbcType=VARCHAR},
       </if>
+      <if test="answer != null">
+        #{answer,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.oxy.model.SAQExample" resultType="java.lang.Long">
@@ -170,8 +177,8 @@
       <if test="record.saqid != null">
         SAQID = #{record.saqid,jdbcType=INTEGER},
       </if>
-      <if test="record.saq != null">
-        SAQ = #{record.saq,jdbcType=VARCHAR},
+      <if test="record.question != null">
+        Question = #{record.question,jdbcType=VARCHAR},
       </if>
       <if test="record.score != null">
         Score = #{record.score,jdbcType=INTEGER},
@@ -188,6 +195,9 @@
       <if test="record.createuser != null">
         CreateUser = #{record.createuser,jdbcType=VARCHAR},
       </if>
+      <if test="record.answer != null">
+        Answer = #{record.answer,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -196,12 +206,13 @@
   <update id="updateByExample" parameterType="map">
     update saq
     set SAQID = #{record.saqid,jdbcType=INTEGER},
-      SAQ = #{record.saq,jdbcType=VARCHAR},
+      Question = #{record.question,jdbcType=VARCHAR},
       Score = #{record.score,jdbcType=INTEGER},
       Subject = #{record.subject,jdbcType=VARCHAR},
       Chapter = #{record.chapter,jdbcType=VARCHAR},
       Difficulty = #{record.difficulty,jdbcType=INTEGER},
-      CreateUser = #{record.createuser,jdbcType=VARCHAR}
+      CreateUser = #{record.createuser,jdbcType=VARCHAR},
+      Answer = #{record.answer,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -209,8 +220,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.oxy.model.SAQ">
     update saq
     <set>
-      <if test="saq != null">
-        SAQ = #{saq,jdbcType=VARCHAR},
+      <if test="question != null">
+        Question = #{question,jdbcType=VARCHAR},
       </if>
       <if test="score != null">
         Score = #{score,jdbcType=INTEGER},
@@ -227,17 +238,21 @@
       <if test="createuser != null">
         CreateUser = #{createuser,jdbcType=VARCHAR},
       </if>
+      <if test="answer != null">
+        Answer = #{answer,jdbcType=VARCHAR},
+      </if>
     </set>
     where SAQID = #{saqid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.oxy.model.SAQ">
     update saq
-    set SAQ = #{saq,jdbcType=VARCHAR},
+    set Question = #{question,jdbcType=VARCHAR},
       Score = #{score,jdbcType=INTEGER},
       Subject = #{subject,jdbcType=VARCHAR},
       Chapter = #{chapter,jdbcType=VARCHAR},
       Difficulty = #{difficulty,jdbcType=INTEGER},
-      CreateUser = #{createuser,jdbcType=VARCHAR}
+      CreateUser = #{createuser,jdbcType=VARCHAR},
+      Answer = #{answer,jdbcType=VARCHAR}
     where SAQID = #{saqid,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -14,11 +14,8 @@ import lombok.Setter;
 public class UpdateUserVO {
 	@NotBlank
 	private String usercode;
-	@NotBlank
 	private String name;
-	@NotBlank
 	private String password;
-	@NotBlank
 	private String role;
 	
 	public User toUser() {
