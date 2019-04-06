@@ -3,15 +3,15 @@ package com.oxy.model;
 public class ExaminationPaper {
     private Integer paperid;
 
-    private Integer questionid;
+    private String questionids;
 
     private String name;
 
-    private Integer saqid;
+    private String saqids;
 
-    private Integer select;
+    private Integer selectnum;
 
-    private Integer saq;
+    private Integer saqnum;
 
     private Integer one;
 
@@ -31,12 +31,12 @@ public class ExaminationPaper {
         this.paperid = paperid;
     }
 
-    public Integer getQuestionid() {
-        return questionid;
+    public String getQuestionids() {
+        return questionids;
     }
 
-    public void setQuestionid(Integer questionid) {
-        this.questionid = questionid;
+    public void setQuestionids(String questionids) {
+        this.questionids = questionids == null ? null : questionids.trim();
     }
 
     public String getName() {
@@ -47,28 +47,28 @@ public class ExaminationPaper {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getSaqid() {
-        return saqid;
+    public String getSaqids() {
+        return saqids;
     }
 
-    public void setSaqid(Integer saqid) {
-        this.saqid = saqid;
+    public void setSaqids(String saqids) {
+        this.saqids = saqids == null ? null : saqids.trim();
     }
 
-    public Integer getSelect() {
-        return select;
+    public Integer getSelectnum() {
+        return selectnum;
     }
 
-    public void setSelect(Integer select) {
-        this.select = select;
+    public void setSelectnum(Integer selectnum) {
+        this.selectnum = selectnum;
     }
 
-    public Integer getSaq() {
-        return saq;
+    public Integer getSaqnum() {
+        return saqnum;
     }
 
-    public void setSaq(Integer saq) {
-        this.saq = saq;
+    public void setSaqnum(Integer saqnum) {
+        this.saqnum = saqnum;
     }
 
     public Integer getOne() {

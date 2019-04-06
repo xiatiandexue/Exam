@@ -3,11 +3,11 @@
 <mapper namespace="com.oxy.dao.ExaminationPaperMapper">
   <resultMap id="BaseResultMap" type="com.oxy.model.ExaminationPaper">
     <id column="PaperID" jdbcType="INTEGER" property="paperid" />
-    <result column="QuestionID" jdbcType="INTEGER" property="questionid" />
+    <result column="QuestionIds" jdbcType="VARCHAR" property="questionids" />
     <result column="Name" jdbcType="VARCHAR" property="name" />
-    <result column="SAQID" jdbcType="INTEGER" property="saqid" />
-    <result column="Select" jdbcType="INTEGER" property="select" />
-    <result column="SAQ" jdbcType="INTEGER" property="saq" />
+    <result column="SAQIds" jdbcType="VARCHAR" property="saqids" />
+    <result column="SelectNum" jdbcType="INTEGER" property="selectnum" />
+    <result column="SAQNum" jdbcType="INTEGER" property="saqnum" />
     <result column="One" jdbcType="INTEGER" property="one" />
     <result column="Two" jdbcType="INTEGER" property="two" />
     <result column="Three" jdbcType="INTEGER" property="three" />
@@ -73,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    PaperID, QuestionID, Name, SAQID, Select, SAQ, One, Two, Three, Score, Subject
+    PaperID, QuestionIds, Name, SAQIds, SelectNum, SAQNum, One, Two, Three, Score, Subject
   </sql>
   <select id="selectByExample" parameterType="com.oxy.model.ExaminationPaperExample" resultMap="BaseResultMap">
     select
@@ -106,12 +106,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.oxy.model.ExaminationPaper">
-    insert into examinationpaper (PaperID, QuestionID, Name, 
-      SAQID, Select, SAQ, 
+    insert into examinationpaper (PaperID, QuestionIds, Name, 
+      SAQIds, SelectNum, SAQNum, 
       One, Two, Three, Score, 
       Subject)
-    values (#{paperid,jdbcType=INTEGER}, #{questionid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{saqid,jdbcType=INTEGER}, #{select,jdbcType=INTEGER}, #{saq,jdbcType=INTEGER}, 
+    values (#{paperid,jdbcType=INTEGER}, #{questionids,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{saqids,jdbcType=VARCHAR}, #{selectnum,jdbcType=INTEGER}, #{saqnum,jdbcType=INTEGER}, 
       #{one,jdbcType=INTEGER}, #{two,jdbcType=INTEGER}, #{three,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, 
       #{subject,jdbcType=VARCHAR})
   </insert>
@@ -121,20 +121,20 @@
       <if test="paperid != null">
         PaperID,
       </if>
-      <if test="questionid != null">
-        QuestionID,
+      <if test="questionids != null">
+        QuestionIds,
       </if>
       <if test="name != null">
         Name,
       </if>
-      <if test="saqid != null">
-        SAQID,
+      <if test="saqids != null">
+        SAQIds,
       </if>
-      <if test="select != null">
-        Select,
+      <if test="selectnum != null">
+        SelectNum,
       </if>
-      <if test="saq != null">
-        SAQ,
+      <if test="saqnum != null">
+        SAQNum,
       </if>
       <if test="one != null">
         One,
@@ -156,20 +156,20 @@
       <if test="paperid != null">
         #{paperid,jdbcType=INTEGER},
       </if>
-      <if test="questionid != null">
-        #{questionid,jdbcType=INTEGER},
+      <if test="questionids != null">
+        #{questionids,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="saqid != null">
-        #{saqid,jdbcType=INTEGER},
+      <if test="saqids != null">
+        #{saqids,jdbcType=VARCHAR},
       </if>
-      <if test="select != null">
-        #{select,jdbcType=INTEGER},
+      <if test="selectnum != null">
+        #{selectnum,jdbcType=INTEGER},
       </if>
-      <if test="saq != null">
-        #{saq,jdbcType=INTEGER},
+      <if test="saqnum != null">
+        #{saqnum,jdbcType=INTEGER},
       </if>
       <if test="one != null">
         #{one,jdbcType=INTEGER},
@@ -200,20 +200,20 @@
       <if test="record.paperid != null">
         PaperID = #{record.paperid,jdbcType=INTEGER},
       </if>
-      <if test="record.questionid != null">
-        QuestionID = #{record.questionid,jdbcType=INTEGER},
+      <if test="record.questionids != null">
+        QuestionIds = #{record.questionids,jdbcType=VARCHAR},
       </if>
       <if test="record.name != null">
         Name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.saqid != null">
-        SAQID = #{record.saqid,jdbcType=INTEGER},
+      <if test="record.saqids != null">
+        SAQIds = #{record.saqids,jdbcType=VARCHAR},
       </if>
-      <if test="record.select != null">
-        Select = #{record.select,jdbcType=INTEGER},
+      <if test="record.selectnum != null">
+        SelectNum = #{record.selectnum,jdbcType=INTEGER},
       </if>
-      <if test="record.saq != null">
-        SAQ = #{record.saq,jdbcType=INTEGER},
+      <if test="record.saqnum != null">
+        SAQNum = #{record.saqnum,jdbcType=INTEGER},
       </if>
       <if test="record.one != null">
         One = #{record.one,jdbcType=INTEGER},
@@ -238,11 +238,11 @@
   <update id="updateByExample" parameterType="map">
     update examinationpaper
     set PaperID = #{record.paperid,jdbcType=INTEGER},
-      QuestionID = #{record.questionid,jdbcType=INTEGER},
+      QuestionIds = #{record.questionids,jdbcType=VARCHAR},
       Name = #{record.name,jdbcType=VARCHAR},
-      SAQID = #{record.saqid,jdbcType=INTEGER},
-      Select = #{record.select,jdbcType=INTEGER},
-      SAQ = #{record.saq,jdbcType=INTEGER},
+      SAQIds = #{record.saqids,jdbcType=VARCHAR},
+      SelectNum = #{record.selectnum,jdbcType=INTEGER},
+      SAQNum = #{record.saqnum,jdbcType=INTEGER},
       One = #{record.one,jdbcType=INTEGER},
       Two = #{record.two,jdbcType=INTEGER},
       Three = #{record.three,jdbcType=INTEGER},
@@ -255,20 +255,20 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.oxy.model.ExaminationPaper">
     update examinationpaper
     <set>
-      <if test="questionid != null">
-        QuestionID = #{questionid,jdbcType=INTEGER},
+      <if test="questionids != null">
+        QuestionIds = #{questionids,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
         Name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="saqid != null">
-        SAQID = #{saqid,jdbcType=INTEGER},
+      <if test="saqids != null">
+        SAQIds = #{saqids,jdbcType=VARCHAR},
       </if>
-      <if test="select != null">
-        Select = #{select,jdbcType=INTEGER},
+      <if test="selectnum != null">
+        SelectNum = #{selectnum,jdbcType=INTEGER},
       </if>
-      <if test="saq != null">
-        SAQ = #{saq,jdbcType=INTEGER},
+      <if test="saqnum != null">
+        SAQNum = #{saqnum,jdbcType=INTEGER},
       </if>
       <if test="one != null">
         One = #{one,jdbcType=INTEGER},
@@ -290,11 +290,11 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.oxy.model.ExaminationPaper">
     update examinationpaper
-    set QuestionID = #{questionid,jdbcType=INTEGER},
+    set QuestionIds = #{questionids,jdbcType=VARCHAR},
       Name = #{name,jdbcType=VARCHAR},
-      SAQID = #{saqid,jdbcType=INTEGER},
-      Select = #{select,jdbcType=INTEGER},
-      SAQ = #{saq,jdbcType=INTEGER},
+      SAQIds = #{saqids,jdbcType=VARCHAR},
+      SelectNum = #{selectnum,jdbcType=INTEGER},
+      SAQNum = #{saqnum,jdbcType=INTEGER},
       One = #{one,jdbcType=INTEGER},
       Two = #{two,jdbcType=INTEGER},
       Three = #{three,jdbcType=INTEGER},

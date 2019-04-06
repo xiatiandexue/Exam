@@ -11,7 +11,7 @@
  Target Server Version : 80011
  File Encoding         : 65001
 
- Date: 31/03/2019 22:08:06
+ Date: 06/04/2019 23:41:54
 */
 
 SET NAMES utf8mb4;
@@ -38,18 +38,24 @@ CREATE TABLE `examination`  (
 DROP TABLE IF EXISTS `examinationpaper`;
 CREATE TABLE `examinationpaper`  (
   `PaperID` int(20) NOT NULL AUTO_INCREMENT,
-  `QuestionID` int(20) DEFAULT NULL,
-  `Name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `SAQID` int(20) DEFAULT NULL,
-  `Select` int(10) DEFAULT NULL,
-  `SAQ` int(10) DEFAULT NULL,
+  `QuestionIds` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `Name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `SAQIds` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `SelectNum` int(10) DEFAULT NULL,
+  `SAQNum` int(10) DEFAULT NULL,
   `One` int(10) DEFAULT NULL,
   `Two` int(10) DEFAULT NULL,
   `Three` int(10) DEFAULT NULL,
   `Score` int(10) DEFAULT NULL,
   `Subject` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`PaperID`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of examinationpaper
+-- ----------------------------
+INSERT INTO `examinationpaper` VALUES (1, '[]', NULL, '[]', 2, 1, NULL, NULL, NULL, 100, 'Chinese');
+INSERT INTO `examinationpaper` VALUES (2, '[1, 5]', NULL, '[1]', 2, 1, NULL, NULL, NULL, 100, '语文');
 
 -- ----------------------------
 -- Table structure for saq
@@ -57,14 +63,23 @@ CREATE TABLE `examinationpaper`  (
 DROP TABLE IF EXISTS `saq`;
 CREATE TABLE `saq`  (
   `SAQID` int(20) NOT NULL AUTO_INCREMENT,
-  `SAQ` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `Question` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `Score` int(10) DEFAULT NULL,
   `Subject` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `Chapter` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `Difficulty` int(10) DEFAULT NULL COMMENT '1-	easy\r\n2-	normal\r\n3-	hard\r\n',
   `CreateUser` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `Answer` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`SAQID`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of saq
+-- ----------------------------
+INSERT INTO `saq` VALUES (1, '简单题一', 20, '语文', '第一章', 2, 'admin', NULL);
+INSERT INTO `saq` VALUES (2, '简答题二', 20, '历史', '第三章', 1, '', '参考答案');
+INSERT INTO `saq` VALUES (4, '1', 20, '语文', '第一章', NULL, '', NULL);
+INSERT INTO `saq` VALUES (5, '2', NULL, '语文', '第二章', NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for score
@@ -98,13 +113,16 @@ CREATE TABLE `singleselect`  (
   `Difficulty` int(10) NOT NULL COMMENT '1-easy  2-normal  3-hard',
   `CreateUser` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`QuestionID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of singleselect
 -- ----------------------------
 INSERT INTO `singleselect` VALUES (1, '例二', '选项一', '选项二', '选项三', '选项四', '选项一', 10, '语文', '第一章', 1, '教师');
 INSERT INTO `singleselect` VALUES (4, '题目三', '选项一', '选项二', '选项三', '选项四', '选项一', 20, '历史', '第一章', 2, 'admin');
+INSERT INTO `singleselect` VALUES (5, '1', '1', '2', '3', '4', NULL, NULL, '语文', '第二章', 1, NULL);
+INSERT INTO `singleselect` VALUES (6, '2', '1', '2', '3', '4', NULL, NULL, '语文', '第三章', 2, NULL);
+INSERT INTO `singleselect` VALUES (7, '3', '1', '', '2', '4', NULL, NULL, '语文', '第二章', 1, NULL);
 
 -- ----------------------------
 -- Table structure for user
@@ -122,12 +140,12 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'admin', 'admin', '12345', '管理员');
+INSERT INTO `user` VALUES (1, 'admin', 'admin', '123456', '管理员');
 INSERT INTO `user` VALUES (2, '201901', '李丽', '12345', '学生');
 INSERT INTO `user` VALUES (3, '201902', '李玲', '12345', '学生');
 INSERT INTO `user` VALUES (4, '1201901', '王敏', '12345', '教师');
 INSERT INTO `user` VALUES (5, '1201902', '黄亮', '12345', '教师');
-INSERT INTO `user` VALUES (14, '201904', '杨建军', '123456', '学生');
+INSERT INTO `user` VALUES (14, '201904', '杨建军', '123456', '教师');
 INSERT INTO `user` VALUES (18, '2201904', '王浩', 'Qw123456', '教师');
 
 SET FOREIGN_KEY_CHECKS = 1;

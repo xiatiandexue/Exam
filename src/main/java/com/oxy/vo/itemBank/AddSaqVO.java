@@ -20,7 +20,7 @@ public class AddSaqVO {
 	
 	public SAQ toSAQ(){
 		SAQ saq = new SAQ();
-		saq.setScore(score);;
+		saq.setScore(score);
 		saq.setQuestion(question);
 		saq.setSubject(subject);
 		saq.setChapter(chapter);

@@ -164,63 +164,73 @@ public class ExaminationPaperExample {
             return (Criteria) this;
         }
 
-        public Criteria andQuestionidIsNull() {
-            addCriterion("QuestionID is null");
+        public Criteria andQuestionidsIsNull() {
+            addCriterion("QuestionIds is null");
             return (Criteria) this;
         }
 
-        public Criteria andQuestionidIsNotNull() {
-            addCriterion("QuestionID is not null");
+        public Criteria andQuestionidsIsNotNull() {
+            addCriterion("QuestionIds is not null");
             return (Criteria) this;
         }
 
-        public Criteria andQuestionidEqualTo(Integer value) {
-            addCriterion("QuestionID =", value, "questionid");
+        public Criteria andQuestionidsEqualTo(String value) {
+            addCriterion("QuestionIds =", value, "questionids");
             return (Criteria) this;
         }
 
-        public Criteria andQuestionidNotEqualTo(Integer value) {
-            addCriterion("QuestionID <>", value, "questionid");
+        public Criteria andQuestionidsNotEqualTo(String value) {
+            addCriterion("QuestionIds <>", value, "questionids");
             return (Criteria) this;
         }
 
-        public Criteria andQuestionidGreaterThan(Integer value) {
-            addCriterion("QuestionID >", value, "questionid");
+        public Criteria andQuestionidsGreaterThan(String value) {
+            addCriterion("QuestionIds >", value, "questionids");
             return (Criteria) this;
         }
 
-        public Criteria andQuestionidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("QuestionID >=", value, "questionid");
+        public Criteria andQuestionidsGreaterThanOrEqualTo(String value) {
+            addCriterion("QuestionIds >=", value, "questionids");
             return (Criteria) this;
         }
 
-        public Criteria andQuestionidLessThan(Integer value) {
-            addCriterion("QuestionID <", value, "questionid");
+        public Criteria andQuestionidsLessThan(String value) {
+            addCriterion("QuestionIds <", value, "questionids");
             return (Criteria) this;
         }
 
-        public Criteria andQuestionidLessThanOrEqualTo(Integer value) {
-            addCriterion("QuestionID <=", value, "questionid");
+        public Criteria andQuestionidsLessThanOrEqualTo(String value) {
+            addCriterion("QuestionIds <=", value, "questionids");
             return (Criteria) this;
         }
 
-        public Criteria andQuestionidIn(List<Integer> values) {
-            addCriterion("QuestionID in", values, "questionid");
+        public Criteria andQuestionidsLike(String value) {
+            addCriterion("QuestionIds like", value, "questionids");
             return (Criteria) this;
         }
 
-        public Criteria andQuestionidNotIn(List<Integer> values) {
-            addCriterion("QuestionID not in", values, "questionid");
+        public Criteria andQuestionidsNotLike(String value) {
+            addCriterion("QuestionIds not like", value, "questionids");
             return (Criteria) this;
         }
 
-        public Criteria andQuestionidBetween(Integer value1, Integer value2) {
-            addCriterion("QuestionID between", value1, value2, "questionid");
+        public Criteria andQuestionidsIn(List<String> values) {
+            addCriterion("QuestionIds in", values, "questionids");
             return (Criteria) this;
         }
 
-        public Criteria andQuestionidNotBetween(Integer value1, Integer value2) {
-            addCriterion("QuestionID not between", value1, value2, "questionid");
+        public Criteria andQuestionidsNotIn(List<String> values) {
+            addCriterion("QuestionIds not in", values, "questionids");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionidsBetween(String value1, String value2) {
+            addCriterion("QuestionIds between", value1, value2, "questionids");
+            return (Criteria) this;
+        }
+
+        public Criteria andQuestionidsNotBetween(String value1, String value2) {
+            addCriterion("QuestionIds not between", value1, value2, "questionids");
             return (Criteria) this;
         }
 
@@ -294,183 +304,193 @@ public class ExaminationPaperExample {
             return (Criteria) this;
         }
 
-        public Criteria andSaqidIsNull() {
-            addCriterion("SAQID is null");
+        public Criteria andSaqidsIsNull() {
+            addCriterion("SAQIds is null");
             return (Criteria) this;
         }
 
-        public Criteria andSaqidIsNotNull() {
-            addCriterion("SAQID is not null");
+        public Criteria andSaqidsIsNotNull() {
+            addCriterion("SAQIds is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSaqidEqualTo(Integer value) {
-            addCriterion("SAQID =", value, "saqid");
+        public Criteria andSaqidsEqualTo(String value) {
+            addCriterion("SAQIds =", value, "saqids");
             return (Criteria) this;
         }
 
-        public Criteria andSaqidNotEqualTo(Integer value) {
-            addCriterion("SAQID <>", value, "saqid");
+        public Criteria andSaqidsNotEqualTo(String value) {
+            addCriterion("SAQIds <>", value, "saqids");
             return (Criteria) this;
         }
 
-        public Criteria andSaqidGreaterThan(Integer value) {
-            addCriterion("SAQID >", value, "saqid");
+        public Criteria andSaqidsGreaterThan(String value) {
+            addCriterion("SAQIds >", value, "saqids");
             return (Criteria) this;
         }
 
-        public Criteria andSaqidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("SAQID >=", value, "saqid");
+        public Criteria andSaqidsGreaterThanOrEqualTo(String value) {
+            addCriterion("SAQIds >=", value, "saqids");
             return (Criteria) this;
         }
 
-        public Criteria andSaqidLessThan(Integer value) {
-            addCriterion("SAQID <", value, "saqid");
+        public Criteria andSaqidsLessThan(String value) {
+            addCriterion("SAQIds <", value, "saqids");
             return (Criteria) this;
         }
 
-        public Criteria andSaqidLessThanOrEqualTo(Integer value) {
-            addCriterion("SAQID <=", value, "saqid");
+        public Criteria andSaqidsLessThanOrEqualTo(String value) {
+            addCriterion("SAQIds <=", value, "saqids");
             return (Criteria) this;
         }
 
-        public Criteria andSaqidIn(List<Integer> values) {
-            addCriterion("SAQID in", values, "saqid");
+        public Criteria andSaqidsLike(String value) {
+            addCriterion("SAQIds like", value, "saqids");
             return (Criteria) this;
         }
 
-        public Criteria andSaqidNotIn(List<Integer> values) {
-            addCriterion("SAQID not in", values, "saqid");
+        public Criteria andSaqidsNotLike(String value) {
+            addCriterion("SAQIds not like", value, "saqids");
             return (Criteria) this;
         }
 
-        public Criteria andSaqidBetween(Integer value1, Integer value2) {
-            addCriterion("SAQID between", value1, value2, "saqid");
+        public Criteria andSaqidsIn(List<String> values) {
+            addCriterion("SAQIds in", values, "saqids");
             return (Criteria) this;
         }
 
-        public Criteria andSaqidNotBetween(Integer value1, Integer value2) {
-            addCriterion("SAQID not between", value1, value2, "saqid");
+        public Criteria andSaqidsNotIn(List<String> values) {
+            addCriterion("SAQIds not in", values, "saqids");
             return (Criteria) this;
         }
 
-        public Criteria andSelectIsNull() {
-            addCriterion("Select is null");
+        public Criteria andSaqidsBetween(String value1, String value2) {
+            addCriterion("SAQIds between", value1, value2, "saqids");
             return (Criteria) this;
         }
 
-        public Criteria andSelectIsNotNull() {
-            addCriterion("Select is not null");
+        public Criteria andSaqidsNotBetween(String value1, String value2) {
+            addCriterion("SAQIds not between", value1, value2, "saqids");
             return (Criteria) this;
         }
 
-        public Criteria andSelectEqualTo(Integer value) {
-            addCriterion("Select =", value, "select");
+        public Criteria andSelectnumIsNull() {
+            addCriterion("SelectNum is null");
             return (Criteria) this;
         }
 
-        public Criteria andSelectNotEqualTo(Integer value) {
-            addCriterion("Select <>", value, "select");
+        public Criteria andSelectnumIsNotNull() {
+            addCriterion("SelectNum is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSelectGreaterThan(Integer value) {
-            addCriterion("Select >", value, "select");
+        public Criteria andSelectnumEqualTo(Integer value) {
+            addCriterion("SelectNum =", value, "selectnum");
             return (Criteria) this;
         }
 
-        public Criteria andSelectGreaterThanOrEqualTo(Integer value) {
-            addCriterion("Select >=", value, "select");
+        public Criteria andSelectnumNotEqualTo(Integer value) {
+            addCriterion("SelectNum <>", value, "selectnum");
             return (Criteria) this;
         }
 
-        public Criteria andSelectLessThan(Integer value) {
-            addCriterion("Select <", value, "select");
+        public Criteria andSelectnumGreaterThan(Integer value) {
+            addCriterion("SelectNum >", value, "selectnum");
             return (Criteria) this;
         }
 
-        public Criteria andSelectLessThanOrEqualTo(Integer value) {
-            addCriterion("Select <=", value, "select");
+        public Criteria andSelectnumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("SelectNum >=", value, "selectnum");
             return (Criteria) this;
         }
 
-        public Criteria andSelectIn(List<Integer> values) {
-            addCriterion("Select in", values, "select");
+        public Criteria andSelectnumLessThan(Integer value) {
+            addCriterion("SelectNum <", value, "selectnum");
             return (Criteria) this;
         }
 
-        public Criteria andSelectNotIn(List<Integer> values) {
-            addCriterion("Select not in", values, "select");
+        public Criteria andSelectnumLessThanOrEqualTo(Integer value) {
+            addCriterion("SelectNum <=", value, "selectnum");
             return (Criteria) this;
         }
 
-        public Criteria andSelectBetween(Integer value1, Integer value2) {
-            addCriterion("Select between", value1, value2, "select");
+        public Criteria andSelectnumIn(List<Integer> values) {
+            addCriterion("SelectNum in", values, "selectnum");
             return (Criteria) this;
         }
 
-        public Criteria andSelectNotBetween(Integer value1, Integer value2) {
-            addCriterion("Select not between", value1, value2, "select");
+        public Criteria andSelectnumNotIn(List<Integer> values) {
+            addCriterion("SelectNum not in", values, "selectnum");
             return (Criteria) this;
         }
 
-        public Criteria andSaqIsNull() {
-            addCriterion("SAQ is null");
+        public Criteria andSelectnumBetween(Integer value1, Integer value2) {
+            addCriterion("SelectNum between", value1, value2, "selectnum");
             return (Criteria) this;
         }
 
-        public Criteria andSaqIsNotNull() {
-            addCriterion("SAQ is not null");
+        public Criteria andSelectnumNotBetween(Integer value1, Integer value2) {
+            addCriterion("SelectNum not between", value1, value2, "selectnum");
             return (Criteria) this;
         }
 
-        public Criteria andSaqEqualTo(Integer value) {
-            addCriterion("SAQ =", value, "saq");
+        public Criteria andSaqnumIsNull() {
+            addCriterion("SAQNum is null");
             return (Criteria) this;
         }
 
-        public Criteria andSaqNotEqualTo(Integer value) {
-            addCriterion("SAQ <>", value, "saq");
+        public Criteria andSaqnumIsNotNull() {
+            addCriterion("SAQNum is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSaqGreaterThan(Integer value) {
-            addCriterion("SAQ >", value, "saq");
+        public Criteria andSaqnumEqualTo(Integer value) {
+            addCriterion("SAQNum =", value, "saqnum");
             return (Criteria) this;
         }
 
-        public Criteria andSaqGreaterThanOrEqualTo(Integer value) {
-            addCriterion("SAQ >=", value, "saq");
+        public Criteria andSaqnumNotEqualTo(Integer value) {
+            addCriterion("SAQNum <>", value, "saqnum");
             return (Criteria) this;
         }
 
-        public Criteria andSaqLessThan(Integer value) {
-            addCriterion("SAQ <", value, "saq");
+        public Criteria andSaqnumGreaterThan(Integer value) {
+            addCriterion("SAQNum >", value, "saqnum");
             return (Criteria) this;
         }
 
-        public Criteria andSaqLessThanOrEqualTo(Integer value) {
-            addCriterion("SAQ <=", value, "saq");
+        public Criteria andSaqnumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("SAQNum >=", value, "saqnum");
             return (Criteria) this;
         }
 
-        public Criteria andSaqIn(List<Integer> values) {
-            addCriterion("SAQ in", values, "saq");
+        public Criteria andSaqnumLessThan(Integer value) {
+            addCriterion("SAQNum <", value, "saqnum");
             return (Criteria) this;
         }
 
-        public Criteria andSaqNotIn(List<Integer> values) {
-            addCriterion("SAQ not in", values, "saq");
+        public Criteria andSaqnumLessThanOrEqualTo(Integer value) {
+            addCriterion("SAQNum <=", value, "saqnum");
             return (Criteria) this;
         }
 
-        public Criteria andSaqBetween(Integer value1, Integer value2) {
-            addCriterion("SAQ between", value1, value2, "saq");
+        public Criteria andSaqnumIn(List<Integer> values) {
+            addCriterion("SAQNum in", values, "saqnum");
             return (Criteria) this;
         }
 
-        public Criteria andSaqNotBetween(Integer value1, Integer value2) {
-            addCriterion("SAQ not between", value1, value2, "saq");
+        public Criteria andSaqnumNotIn(List<Integer> values) {
+            addCriterion("SAQNum not in", values, "saqnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaqnumBetween(Integer value1, Integer value2) {
+            addCriterion("SAQNum between", value1, value2, "saqnum");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaqnumNotBetween(Integer value1, Integer value2) {
+            addCriterion("SAQNum not between", value1, value2, "saqnum");
             return (Criteria) this;
         }
 
