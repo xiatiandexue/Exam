@@ -9,6 +9,7 @@ import com.oxy.model.SAQ;
 import com.oxy.model.Singleselect;
 import com.oxy.vo.paper.AutoGeneratingVO;
 import com.oxy.vo.paper.PagePaperVO;
+import com.oxy.vo.paper.SAQIdVO;
 import com.oxy.vo.paper.SelectIdVO;
 
 public interface PaperService {
@@ -29,4 +30,6 @@ public interface PaperService {
 	List<SAQ> getSAQById(String saqids);
 	
 	void deleteSelect(SelectIdVO vo);
+	
+	void deleteSAQ(SAQIdVO vo);
 }

@@ -65,5 +65,11 @@ public class PaperController {
 		paperService.deleteSelect(vo);
 		return new JsonResult(0,"删除成功");
 	}
+	@RequestMapping(value="/saq",method = RequestMethod.DELETE,produces={
+	"application/json;charset=utf-8"})
+	public JsonResult deleteSAQ(@RequestBody SAQIdVO vo){
+		paperService.deleteSAQ(vo);
+		return new JsonResult(0,"删除成功");
+	}
 	
 }

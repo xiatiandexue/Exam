@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.common.base.Joiner;
+import com.google.common.base.Predicate;
 import com.oxy.dao.ExaminationPaperMapper;
 import com.oxy.dao.SAQMapper;
 import com.oxy.dao.SingleselectMapper;
@@ -26,6 +27,7 @@ import com.oxy.service.PaperService;
 import com.oxy.utils.ServiceException;
 import com.oxy.vo.paper.AutoGeneratingVO;
 import com.oxy.vo.paper.PagePaperVO;
+import com.oxy.vo.paper.SAQIdVO;
 import com.oxy.vo.paper.SelectIdVO;
 @Service
 public class PaperServiceImpl implements PaperService{
@@ -197,18 +199,46 @@ public class PaperServiceImpl implements PaperService{
 	@Override
 	public void deleteSelect(SelectIdVO vo){
 		ExaminationPaper paper = selectById(vo.getPaperid());
-		String str[] = paper.getQuestionids().split(",");
-		List<String> questionIds = Arrays.asList(str);
-		Integer selectid = vo.getQuestionid();
+		System.out.println("questionids:"+paper.getQuestionids());
+		String str[] = paper.getQuestionids().trim().split(",");
+		List<String> questionIds = new ArrayList<>(Arrays.asList(str));
+//		List<String> arrList = new ArrayList(questionIds);
+		String selectid = vo.getQuestionid()+"";
 		System.out.println("selectid:"+selectid);
-		for(int i = questionIds.size() - 1; i >=0; i--){
-			Integer item = Integer.parseInt(questionIds.get(i));
-			System.out.println(item);
-			if(selectid.equals(item)){
-				questionIds.remove(item);
-				System.out.println("删除后的选择题id："+questionIds);
-			}
-		}
-		System.out.println(questionIds.size());
+		System.out.println("questionIds："+questionIds);
+		questionIds.removeIf(next ->{
+//			System.out.println(next);
+//			System.out.println(next.equals(selectid));
+		    return next.equals(selectid);//No return statement will break compilation
+	    }); 
+		System.out.println("删除后的选择题id："+questionIds);
+		String questionids = Joiner.on(",").join(questionIds); 
+		paper.setQuestionids(questionids);
+		paperMapper.updateByPrimaryKeySelective(paper);
+		
+	}
+	/*
+	 * 删除简答题
+	 */
+	@Override
+	public void deleteSAQ(SAQIdVO vo){
+		ExaminationPaper paper = selectById(vo.getPaperid());
+		System.out.println("saqids:"+paper.getSaqids());
+		String str[] = paper.getSaqids().trim().split(",");
+		List<String> saqIds = new ArrayList<>(Arrays.asList(str));
+//		List<String> arrList = new ArrayList(questionIds);
+		String saqid = vo.getSaqid()+"";
+		System.out.println("saqid:"+saqid);
+		System.out.println("saqIds："+saqIds);
+		saqIds.removeIf(next ->{
+//			System.out.println(next);
+//			System.out.println(next.equals(selectid));
+		    return next.equals(saqid);//No return statement will break compilation
+	    }); 
+		System.out.println("删除后的简答题id："+saqIds);
+		String saqids = Joiner.on(",").join(saqIds); 
+		paper.setSaqids(saqids);
+		paperMapper.updateByPrimaryKeySelective(paper);
+		
 	}
 }

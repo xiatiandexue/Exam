@@ -28,6 +28,7 @@ public class AutoGeneratingVO {
 		paper.setScore(score);
 		paper.setQuestionids(questionids);
 		paper.setSaqids(saqids);
+		paper.setCreateuser(createuser);
 		return paper;
 				
 	}
