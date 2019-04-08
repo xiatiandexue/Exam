@@ -3,10 +3,8 @@ package com.oxy.dao;
 import com.oxy.model.Singleselect;
 import com.oxy.model.SingleselectExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-@Mapper
+
 public interface SingleselectMapper {
     long countByExample(SingleselectExample example);
 

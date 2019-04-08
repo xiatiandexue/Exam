@@ -1,9 +1,7 @@
 package com.oxy.dao;
 
-import org.apache.ibatis.annotations.Mapper;
-
 import com.oxy.model.Examination;
-@Mapper
+
 public interface ExaminationMapper {
     int deleteByPrimaryKey(Integer examinationid);
 

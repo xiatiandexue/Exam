@@ -185,6 +185,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.oxy.model.User">
     update user
     <set>
+      <if test="usercode != null">
+        UserCode = #{usercode,jdbcType=VARCHAR},
+      </if>
       <if test="name != null">
         Name = #{name,jdbcType=VARCHAR},
       </if>
@@ -195,7 +198,7 @@
         Role = #{role,jdbcType=VARCHAR},
       </if>
     </set>
-    where UserCode = #{usercode,jdbcType=VARCHAR}
+    where UserID = #{userid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.oxy.model.User">
     update user

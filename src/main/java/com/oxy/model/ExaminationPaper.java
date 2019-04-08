@@ -13,15 +13,11 @@ public class ExaminationPaper {
 
     private Integer saqnum;
 
-    private Integer one;
-
-    private Integer two;
-
-    private Integer three;
-
     private Integer score;
 
     private String subject;
+
+    private String createuser;
 
     public Integer getPaperid() {
         return paperid;
@@ -71,30 +67,6 @@ public class ExaminationPaper {
         this.saqnum = saqnum;
     }
 
-    public Integer getOne() {
-        return one;
-    }
-
-    public void setOne(Integer one) {
-        this.one = one;
-    }
-
-    public Integer getTwo() {
-        return two;
-    }
-
-    public void setTwo(Integer two) {
-        this.two = two;
-    }
-
-    public Integer getThree() {
-        return three;
-    }
-
-    public void setThree(Integer three) {
-        this.three = three;
-    }
-
     public Integer getScore() {
         return score;
     }
@@ -109,5 +81,13 @@ public class ExaminationPaper {
 
     public void setSubject(String subject) {
         this.subject = subject == null ? null : subject.trim();
+    }
+
+    public String getCreateuser() {
+        return createuser;
+    }
+
+    public void setCreateuser(String createuser) {
+        this.createuser = createuser == null ? null : createuser.trim();
     }
 }

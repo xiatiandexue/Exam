@@ -8,11 +8,9 @@
     <result column="SAQIds" jdbcType="VARCHAR" property="saqids" />
     <result column="SelectNum" jdbcType="INTEGER" property="selectnum" />
     <result column="SAQNum" jdbcType="INTEGER" property="saqnum" />
-    <result column="One" jdbcType="INTEGER" property="one" />
-    <result column="Two" jdbcType="INTEGER" property="two" />
-    <result column="Three" jdbcType="INTEGER" property="three" />
     <result column="Score" jdbcType="INTEGER" property="score" />
     <result column="Subject" jdbcType="VARCHAR" property="subject" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createuser" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -73,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    PaperID, QuestionIds, Name, SAQIds, SelectNum, SAQNum, One, Two, Three, Score, Subject
+    PaperID, QuestionIds, Name, SAQIds, SelectNum, SAQNum, Score, Subject, CreateUser
   </sql>
   <select id="selectByExample" parameterType="com.oxy.model.ExaminationPaperExample" resultMap="BaseResultMap">
     select
@@ -108,12 +106,12 @@
   <insert id="insert" parameterType="com.oxy.model.ExaminationPaper">
     insert into examinationpaper (PaperID, QuestionIds, Name, 
       SAQIds, SelectNum, SAQNum, 
-      One, Two, Three, Score, 
-      Subject)
+      Score, Subject, CreateUser
+      )
     values (#{paperid,jdbcType=INTEGER}, #{questionids,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{saqids,jdbcType=VARCHAR}, #{selectnum,jdbcType=INTEGER}, #{saqnum,jdbcType=INTEGER}, 
-      #{one,jdbcType=INTEGER}, #{two,jdbcType=INTEGER}, #{three,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, 
-      #{subject,jdbcType=VARCHAR})
+      #{score,jdbcType=INTEGER}, #{subject,jdbcType=VARCHAR}, #{createuser,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.oxy.model.ExaminationPaper">
     insert into examinationpaper
@@ -136,20 +134,14 @@
       <if test="saqnum != null">
         SAQNum,
       </if>
-      <if test="one != null">
-        One,
-      </if>
-      <if test="two != null">
-        Two,
-      </if>
-      <if test="three != null">
-        Three,
-      </if>
       <if test="score != null">
         Score,
       </if>
       <if test="subject != null">
         Subject,
+      </if>
+      <if test="createuser != null">
+        CreateUser,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -171,20 +163,14 @@
       <if test="saqnum != null">
         #{saqnum,jdbcType=INTEGER},
       </if>
-      <if test="one != null">
-        #{one,jdbcType=INTEGER},
-      </if>
-      <if test="two != null">
-        #{two,jdbcType=INTEGER},
-      </if>
-      <if test="three != null">
-        #{three,jdbcType=INTEGER},
-      </if>
       <if test="score != null">
         #{score,jdbcType=INTEGER},
       </if>
       <if test="subject != null">
         #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="createuser != null">
+        #{createuser,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -215,20 +201,14 @@
       <if test="record.saqnum != null">
         SAQNum = #{record.saqnum,jdbcType=INTEGER},
       </if>
-      <if test="record.one != null">
-        One = #{record.one,jdbcType=INTEGER},
-      </if>
-      <if test="record.two != null">
-        Two = #{record.two,jdbcType=INTEGER},
-      </if>
-      <if test="record.three != null">
-        Three = #{record.three,jdbcType=INTEGER},
-      </if>
       <if test="record.score != null">
         Score = #{record.score,jdbcType=INTEGER},
       </if>
       <if test="record.subject != null">
         Subject = #{record.subject,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createuser != null">
+        CreateUser = #{record.createuser,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -243,11 +223,9 @@
       SAQIds = #{record.saqids,jdbcType=VARCHAR},
       SelectNum = #{record.selectnum,jdbcType=INTEGER},
       SAQNum = #{record.saqnum,jdbcType=INTEGER},
-      One = #{record.one,jdbcType=INTEGER},
-      Two = #{record.two,jdbcType=INTEGER},
-      Three = #{record.three,jdbcType=INTEGER},
       Score = #{record.score,jdbcType=INTEGER},
-      Subject = #{record.subject,jdbcType=VARCHAR}
+      Subject = #{record.subject,jdbcType=VARCHAR},
+      CreateUser = #{record.createuser,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -270,20 +248,14 @@
       <if test="saqnum != null">
         SAQNum = #{saqnum,jdbcType=INTEGER},
       </if>
-      <if test="one != null">
-        One = #{one,jdbcType=INTEGER},
-      </if>
-      <if test="two != null">
-        Two = #{two,jdbcType=INTEGER},
-      </if>
-      <if test="three != null">
-        Three = #{three,jdbcType=INTEGER},
-      </if>
       <if test="score != null">
         Score = #{score,jdbcType=INTEGER},
       </if>
       <if test="subject != null">
         Subject = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="createuser != null">
+        CreateUser = #{createuser,jdbcType=VARCHAR},
       </if>
     </set>
     where PaperID = #{paperid,jdbcType=INTEGER}
@@ -295,11 +267,9 @@
       SAQIds = #{saqids,jdbcType=VARCHAR},
       SelectNum = #{selectnum,jdbcType=INTEGER},
       SAQNum = #{saqnum,jdbcType=INTEGER},
-      One = #{one,jdbcType=INTEGER},
-      Two = #{two,jdbcType=INTEGER},
-      Three = #{three,jdbcType=INTEGER},
       Score = #{score,jdbcType=INTEGER},
-      Subject = #{subject,jdbcType=VARCHAR}
+      Subject = #{subject,jdbcType=VARCHAR},
+      CreateUser = #{createuser,jdbcType=VARCHAR}
     where PaperID = #{paperid,jdbcType=INTEGER}
   </update>
 </mapper>

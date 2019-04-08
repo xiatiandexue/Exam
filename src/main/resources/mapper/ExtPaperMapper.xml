@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.oxy.dao.ext.ExtPaperMapper">
+  	<select id="listPage" parameterType="com.oxy.dto.paper.PagePaperDTO"
+    	resultType="com.oxy.dto.paper.PagePaperDTO">
+    	select PaperID as paperid,
+    	Name as name,
+    	SelectNum as selectnum,
+    	SAQNum as saqnum,
+    	Score as score,
+    	Subject as subject,
+    	CreateUser as createuser
+    	From examinationpaper
+    	<where>
+    		<if test="param != null">
+    			<if test="param.subject != null and param.subject != '' ">
+    				<bind name="pattern" value="'%' + param.subject + '%'"/>
+    				and Subject like #{pattern} 
+    			</if>
+    		</if>
+    		<if test="param != null">
+    			<if test="param.createuser != null and param.createuser != '' ">
+    				<bind name="pattern" value="'%' + param.createuser + '%'"/>
+    				and CreateUser like #{pattern} 
+    			</if>
+    		</if>
+    	</where>
+    </select>	
+  </mapper>

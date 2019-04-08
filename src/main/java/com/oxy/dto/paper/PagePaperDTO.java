@@ -5,12 +5,12 @@ import lombok.Data;
 
 @Data
 @Builder
-public class AutoGeneratingDTO {
+public class PagePaperDTO {
+	private Integer paperid;
 	private String name;
 	private Integer selectnum;
 	private Integer saqnum;
 	private Integer score;
 	private String subject;
-	private String questionids;
-	private String saqids;
+	private String createuser;
 }

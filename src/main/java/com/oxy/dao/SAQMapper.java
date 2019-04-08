@@ -3,10 +3,8 @@ package com.oxy.dao;
 import com.oxy.model.SAQ;
 import com.oxy.model.SAQExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-@Mapper
+
 public interface SAQMapper {
     long countByExample(SAQExample example);
 

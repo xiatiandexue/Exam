@@ -17,6 +17,7 @@ public class AutoGeneratingVO {
 	private Integer score;
 	private String questionids;
 	private String saqids;
+	private String createuser;
 	
 	public ExaminationPaper toAutoGenerating(){
 		ExaminationPaper paper = new ExaminationPaper();

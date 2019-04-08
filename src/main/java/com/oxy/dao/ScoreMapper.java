@@ -3,10 +3,8 @@ package com.oxy.dao;
 import com.oxy.model.Score;
 import com.oxy.model.ScoreExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-@Mapper
+
 public interface ScoreMapper {
     long countByExample(ScoreExample example);
 
