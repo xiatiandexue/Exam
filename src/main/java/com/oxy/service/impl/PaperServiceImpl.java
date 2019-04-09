@@ -74,8 +74,8 @@ public class PaperServiceImpl implements PaperService{
 	 */
 	@Override
 	public void insert(AutoGeneratingVO vo){
-		int selectCount = vo.getSelectnum(); //要抽取的单选题数量
-		int saqCount = vo.getSaqnum(); //要抽取的简答题数量
+		int selectCount = vo.getTotalselect(); //要抽取的单选题数量
+		int saqCount = vo.getTotalsaq(); //要抽取的简答题数量
 		List<Singleselect> selectList = getSelect(vo.getSubject()); //单选题list
 		List<SAQ> saqList = getSaq(vo.getSubject()); //简答题list
 		int allSelectCount = selectList.size(); //单选题总数
@@ -128,6 +128,8 @@ public class PaperServiceImpl implements PaperService{
 		//添加进数据库中
 		vo.setQuestionids(questionids);
 		vo.setSaqids(saqids);
+		vo.setSelectnum(questionidlist.size());
+		vo.setSaqnum(saqidlist.size());
 		ExaminationPaper paper = vo.toAutoGenerating();
 		paperMapper.insertSelective(paper);
 	}
@@ -214,6 +216,7 @@ public class PaperServiceImpl implements PaperService{
 		System.out.println("删除后的选择题id："+questionIds);
 		String questionids = Joiner.on(",").join(questionIds); 
 		paper.setQuestionids(questionids);
+		paper.setSelectnum(questionIds.size());
 		paperMapper.updateByPrimaryKeySelective(paper);
 		
 	}
@@ -231,14 +234,52 @@ public class PaperServiceImpl implements PaperService{
 		System.out.println("saqid:"+saqid);
 		System.out.println("saqIds："+saqIds);
 		saqIds.removeIf(next ->{
-//			System.out.println(next);
-//			System.out.println(next.equals(selectid));
 		    return next.equals(saqid);//No return statement will break compilation
 	    }); 
 		System.out.println("删除后的简答题id："+saqIds);
 		String saqids = Joiner.on(",").join(saqIds); 
 		paper.setSaqids(saqids);
+		paper.setSaqnum(saqIds.size());
+		paperMapper.updateByPrimaryKeySelective(paper);
+	}
+	/*
+	 * 添加单选题
+	 */
+	@Override
+	public void addSelect(SelectIdVO vo){
+		ExaminationPaper paper = selectById(vo.getPaperid());
+		System.out.println("questionids:"+paper.getQuestionids());
+		String str[] = paper.getQuestionids().trim().split(",");
+		List<String> questionIds = new ArrayList<>(Arrays.asList(str));
+		String selectid = vo.getQuestionid()+"";
+		System.out.println("selectid:"+selectid);
+		System.out.println("questionIds："+questionIds);
+		questionIds.add(selectid); 
+		System.out.println("添加后的选择题id："+questionIds);
+		String questionids = Joiner.on(",").join(questionIds); 
+		paper.setQuestionids(questionids);
+		paper.setSelectnum(questionIds.size());
 		paperMapper.updateByPrimaryKeySelective(paper);
 		
+	}
+	/*
+	 * 添加判断题
+	 */
+	@Override
+	public void addSAQ(SAQIdVO vo){
+		ExaminationPaper paper = selectById(vo.getPaperid());
+		System.out.println("saqids:"+paper.getSaqids());
+		String str[] = paper.getSaqids().trim().split(",");
+		List<String> saqIds = new ArrayList<>(Arrays.asList(str));
+//		List<String> arrList = new ArrayList(questionIds);
+		String saqid = vo.getSaqid()+"";
+		System.out.println("saqid:"+saqid);
+		System.out.println("saqIds："+saqIds);
+		saqIds.add(saqid);
+		System.out.println("添加后的判断题id："+saqIds);
+		String saqids = Joiner.on(",").join(saqIds); 
+		paper.setSaqids(saqids);
+		paper.setSaqnum(saqIds.size());
+		paperMapper.updateByPrimaryKeySelective(paper);
 	}
 }

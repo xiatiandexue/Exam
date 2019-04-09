@@ -23,8 +23,6 @@ public class UpdateSelectVO {
 	private String choicefour;
 	@NotBlank
 	private String answer;
-	@NotNull
-	private Integer score;
 	@NotBlank
 	private String subject;
 	@NotBlank
@@ -41,7 +39,6 @@ public class UpdateSelectVO {
 		select.setChoicefour(choicefour);
 		select.setAnswer(answer);
 		select.setSubject(subject);
-		select.setScore(score);
 		select.setChapter(chapter);
 		select.setDifficulty(difficulty);
 		return select;

@@ -22,7 +22,7 @@
           and UserCode = #{param.usercode}
         </if>
         <if test="param.userid != null">
-          and UserCode = #{param.userid}
+          and UserId = #{param.userid}
         </if>
       </if>
     </where>

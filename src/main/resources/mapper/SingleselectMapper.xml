@@ -9,7 +9,6 @@
     <result column="ChoiceThree" jdbcType="VARCHAR" property="choicethree" />
     <result column="ChoiceFour" jdbcType="VARCHAR" property="choicefour" />
     <result column="Answer" jdbcType="VARCHAR" property="answer" />
-    <result column="Score" jdbcType="INTEGER" property="score" />
     <result column="Subject" jdbcType="VARCHAR" property="subject" />
     <result column="Chapter" jdbcType="VARCHAR" property="chapter" />
     <result column="Difficulty" jdbcType="INTEGER" property="difficulty" />
@@ -74,8 +73,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    QuestionID, Question, ChoiceOne, ChoiceTwo, ChoiceThree, ChoiceFour, Answer, Score, 
-    Subject, Chapter, Difficulty, CreateUser
+    QuestionID, Question, ChoiceOne, ChoiceTwo, ChoiceThree, ChoiceFour, Answer, Subject, 
+    Chapter, Difficulty, CreateUser
   </sql>
   <select id="selectByExample" parameterType="com.oxy.model.SingleselectExample" resultMap="BaseResultMap">
     select
@@ -110,14 +109,12 @@
   <insert id="insert" parameterType="com.oxy.model.Singleselect">
     insert into singleselect (QuestionID, Question, ChoiceOne, 
       ChoiceTwo, ChoiceThree, ChoiceFour, 
-      Answer, Score, Subject, 
-      Chapter, Difficulty, CreateUser
-      )
+      Answer, Subject, Chapter, 
+      Difficulty, CreateUser)
     values (#{questionid,jdbcType=INTEGER}, #{question,jdbcType=VARCHAR}, #{choiceone,jdbcType=VARCHAR}, 
       #{choicetwo,jdbcType=VARCHAR}, #{choicethree,jdbcType=VARCHAR}, #{choicefour,jdbcType=VARCHAR}, 
-      #{answer,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, #{subject,jdbcType=VARCHAR}, 
-      #{chapter,jdbcType=VARCHAR}, #{difficulty,jdbcType=INTEGER}, #{createuser,jdbcType=VARCHAR}
-      )
+      #{answer,jdbcType=VARCHAR}, #{subject,jdbcType=VARCHAR}, #{chapter,jdbcType=VARCHAR}, 
+      #{difficulty,jdbcType=INTEGER}, #{createuser,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.oxy.model.Singleselect">
     insert into singleselect
@@ -142,9 +139,6 @@
       </if>
       <if test="answer != null">
         Answer,
-      </if>
-      <if test="score != null">
-        Score,
       </if>
       <if test="subject != null">
         Subject,
@@ -180,9 +174,6 @@
       </if>
       <if test="answer != null">
         #{answer,jdbcType=VARCHAR},
-      </if>
-      <if test="score != null">
-        #{score,jdbcType=INTEGER},
       </if>
       <if test="subject != null">
         #{subject,jdbcType=VARCHAR},
@@ -228,9 +219,6 @@
       <if test="record.answer != null">
         Answer = #{record.answer,jdbcType=VARCHAR},
       </if>
-      <if test="record.score != null">
-        Score = #{record.score,jdbcType=INTEGER},
-      </if>
       <if test="record.subject != null">
         Subject = #{record.subject,jdbcType=VARCHAR},
       </if>
@@ -257,7 +245,6 @@
       ChoiceThree = #{record.choicethree,jdbcType=VARCHAR},
       ChoiceFour = #{record.choicefour,jdbcType=VARCHAR},
       Answer = #{record.answer,jdbcType=VARCHAR},
-      Score = #{record.score,jdbcType=INTEGER},
       Subject = #{record.subject,jdbcType=VARCHAR},
       Chapter = #{record.chapter,jdbcType=VARCHAR},
       Difficulty = #{record.difficulty,jdbcType=INTEGER},
@@ -287,9 +274,6 @@
       <if test="answer != null">
         Answer = #{answer,jdbcType=VARCHAR},
       </if>
-      <if test="score != null">
-        Score = #{score,jdbcType=INTEGER},
-      </if>
       <if test="subject != null">
         Subject = #{subject,jdbcType=VARCHAR},
       </if>
@@ -313,7 +297,6 @@
       ChoiceThree = #{choicethree,jdbcType=VARCHAR},
       ChoiceFour = #{choicefour,jdbcType=VARCHAR},
       Answer = #{answer,jdbcType=VARCHAR},
-      Score = #{score,jdbcType=INTEGER},
       Subject = #{subject,jdbcType=VARCHAR},
       Chapter = #{chapter,jdbcType=VARCHAR},
       Difficulty = #{difficulty,jdbcType=INTEGER},

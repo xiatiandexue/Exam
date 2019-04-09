@@ -6,8 +6,12 @@
     	resultType="com.oxy.dto.paper.PagePaperDTO">
     	select PaperID as paperid,
     	Name as name,
+    	TotalSelect as totalselect,
     	SelectNum as selectnum,
+    	SelectScore as selectscore,
+    	TotalSAQ as totalsaq,
     	SAQNum as saqnum,
+    	SAQScore as saqscore,
     	Score as score,
     	Subject as subject,
     	CreateUser as createuser
@@ -15,14 +19,14 @@
     	<where>
     		<if test="param != null">
     			<if test="param.subject != null and param.subject != '' ">
-    				<bind name="pattern" value="'%' + param.subject + '%'"/>
-    				and Subject like #{pattern} 
+    				<bind name="subject" value="'%' + param.subject + '%'"/>
+    				and Subject like #{subject} 
     			</if>
     		</if>
     		<if test="param != null">
     			<if test="param.createuser != null and param.createuser != '' ">
-    				<bind name="pattern" value="'%' + param.createuser + '%'"/>
-    				and CreateUser like #{pattern} 
+    				<bind name="createuser" value="'%' + param.createuser + '%'"/>
+    				and CreateUser like #{createuser} 
     			</if>
     		</if>
     	</where>

@@ -32,4 +32,8 @@ public interface PaperService {
 	void deleteSelect(SelectIdVO vo);
 	
 	void deleteSAQ(SAQIdVO vo);
+	
+	void addSelect(SelectIdVO vo);
+	
+	void addSAQ(SAQIdVO vo);
 }

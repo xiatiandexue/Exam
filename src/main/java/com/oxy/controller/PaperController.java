@@ -71,5 +71,17 @@ public class PaperController {
 		paperService.deleteSAQ(vo);
 		return new JsonResult(0,"删除成功");
 	}
+	@RequestMapping(value="/addSelect",method = RequestMethod.POST,produces={
+	"application/json;charset=utf-8"})
+	public JsonResult addSelect(@RequestBody SelectIdVO vo){
+		paperService.addSelect(vo);
+		return new JsonResult(0,"成功");
+	}
+	@RequestMapping(value="/addSAQ",method = RequestMethod.POST,produces={
+	"application/json;charset=utf-8"})
+	public JsonResult addSAQ(@RequestBody SAQIdVO vo){
+		paperService.addSAQ(vo);
+		return new JsonResult(0,"成功");
+	}
 	
 }

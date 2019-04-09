@@ -11,7 +11,6 @@ import lombok.ToString;
 @ToString
 public class AddSaqVO {
 	private String question;
-	private Integer score;
 	private String subject;
 	private String chapter;
 	private Integer difficulty;
@@ -20,7 +19,6 @@ public class AddSaqVO {
 	
 	public SAQ toSAQ(){
 		SAQ saq = new SAQ();
-		saq.setScore(score);
 		saq.setQuestion(question);
 		saq.setSubject(subject);
 		saq.setChapter(chapter);

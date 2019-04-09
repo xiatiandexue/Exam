@@ -6,7 +6,6 @@
     	resultType="com.oxy.dto.itemBank.PageSaqDTO">
     	select SAQID as saqid,
     	Question as question,
-    	Score as score,
     	Subject as subject,
     	Chapter as chapter,
     	Difficulty as difficulty,
@@ -16,26 +15,26 @@
     	<where>
     		<if test="param != null">
     			<if test="param.question != null and param.question != '' ">
-    				<bind name="pattern" value="'%' + param.question + '%'"/>
-    				and Question like #{pattern} 
+    				<bind name="question" value="'%' + param.question + '%'"/>
+    				and Question like #{question} 
     			</if>
     		</if>
     		<if test="param != null">
     			<if test="param.subject != null and param.subject != '' ">
-    				<bind name="pattern" value="'%' + param.subject + '%'"/>
-    				and Subject like #{pattern} 
+    				<bind name="subject" value="'%' + param.subject + '%'"/>
+    				and Subject like #{subject} 
     			</if>
     		</if>
     		<if test="param != null">
     			<if test="param.chapter != null and param.chapter != '' ">
-    				<bind name="pattern" value="'%' + param.chapter + '%'"/>
-    				and Chapter like #{pattern} 
+    				<bind name="chapter" value="'%' + param.chapter + '%'"/>
+    				and Chapter like #{chapter} 
     			</if>
     		</if>
     		<if test="param != null">
     			<if test="param.createuser != null and param.createuser != '' ">
-    				<bind name="pattern" value="'%' + param.createuser + '%'"/>
-    				and CreateUser like #{pattern} 
+    				<bind name="createuser" value="'%' + param.createuser + '%'"/>
+    				and CreateUser like #{createuser} 
     			</if>
     		</if>
     	</where>

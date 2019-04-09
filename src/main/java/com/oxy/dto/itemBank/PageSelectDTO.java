@@ -13,7 +13,6 @@ public class PageSelectDTO {
 	private String choicethree;
 	private String choicefour;
 	private String answer;
-	private Integer score;
 	private String subject;
 	private String chapter;
 	private Integer difficulty;

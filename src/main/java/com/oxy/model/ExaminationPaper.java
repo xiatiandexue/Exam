@@ -19,6 +19,14 @@ public class ExaminationPaper {
 
     private String createuser;
 
+    private Integer totalselect;
+
+    private Integer totalsaq;
+
+    private Integer selectscore;
+
+    private Integer saqscore;
+
     public Integer getPaperid() {
         return paperid;
     }
@@ -89,5 +97,37 @@ public class ExaminationPaper {
 
     public void setCreateuser(String createuser) {
         this.createuser = createuser == null ? null : createuser.trim();
+    }
+
+    public Integer getTotalselect() {
+        return totalselect;
+    }
+
+    public void setTotalselect(Integer totalselect) {
+        this.totalselect = totalselect;
+    }
+
+    public Integer getTotalsaq() {
+        return totalsaq;
+    }
+
+    public void setTotalsaq(Integer totalsaq) {
+        this.totalsaq = totalsaq;
+    }
+
+    public Integer getSelectscore() {
+        return selectscore;
+    }
+
+    public void setSelectscore(Integer selectscore) {
+        this.selectscore = selectscore;
+    }
+
+    public Integer getSaqscore() {
+        return saqscore;
+    }
+
+    public void setSaqscore(Integer saqscore) {
+        this.saqscore = saqscore;
     }
 }

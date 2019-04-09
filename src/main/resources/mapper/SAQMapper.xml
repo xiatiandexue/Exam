@@ -4,7 +4,6 @@
   <resultMap id="BaseResultMap" type="com.oxy.model.SAQ">
     <id column="SAQID" jdbcType="INTEGER" property="saqid" />
     <result column="Question" jdbcType="VARCHAR" property="question" />
-    <result column="Score" jdbcType="INTEGER" property="score" />
     <result column="Subject" jdbcType="VARCHAR" property="subject" />
     <result column="Chapter" jdbcType="VARCHAR" property="chapter" />
     <result column="Difficulty" jdbcType="INTEGER" property="difficulty" />
@@ -70,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    SAQID, Question, Score, Subject, Chapter, Difficulty, CreateUser, Answer
+    SAQID, Question, Subject, Chapter, Difficulty, CreateUser, Answer
   </sql>
   <select id="selectByExample" parameterType="com.oxy.model.SAQExample" resultMap="BaseResultMap">
     select
@@ -103,12 +102,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.oxy.model.SAQ">
-    insert into saq (SAQID, Question, Score, 
-      Subject, Chapter, Difficulty, 
-      CreateUser, Answer)
-    values (#{saqid,jdbcType=INTEGER}, #{question,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, 
-      #{subject,jdbcType=VARCHAR}, #{chapter,jdbcType=VARCHAR}, #{difficulty,jdbcType=INTEGER}, 
-      #{createuser,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR})
+    insert into saq (SAQID, Question, Subject, 
+      Chapter, Difficulty, CreateUser, 
+      Answer)
+    values (#{saqid,jdbcType=INTEGER}, #{question,jdbcType=VARCHAR}, #{subject,jdbcType=VARCHAR}, 
+      #{chapter,jdbcType=VARCHAR}, #{difficulty,jdbcType=INTEGER}, #{createuser,jdbcType=VARCHAR}, 
+      #{answer,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.oxy.model.SAQ">
     insert into saq
@@ -118,9 +117,6 @@
       </if>
       <if test="question != null">
         Question,
-      </if>
-      <if test="score != null">
-        Score,
       </if>
       <if test="subject != null">
         Subject,
@@ -144,9 +140,6 @@
       </if>
       <if test="question != null">
         #{question,jdbcType=VARCHAR},
-      </if>
-      <if test="score != null">
-        #{score,jdbcType=INTEGER},
       </if>
       <if test="subject != null">
         #{subject,jdbcType=VARCHAR},
@@ -180,9 +173,6 @@
       <if test="record.question != null">
         Question = #{record.question,jdbcType=VARCHAR},
       </if>
-      <if test="record.score != null">
-        Score = #{record.score,jdbcType=INTEGER},
-      </if>
       <if test="record.subject != null">
         Subject = #{record.subject,jdbcType=VARCHAR},
       </if>
@@ -207,7 +197,6 @@
     update saq
     set SAQID = #{record.saqid,jdbcType=INTEGER},
       Question = #{record.question,jdbcType=VARCHAR},
-      Score = #{record.score,jdbcType=INTEGER},
       Subject = #{record.subject,jdbcType=VARCHAR},
       Chapter = #{record.chapter,jdbcType=VARCHAR},
       Difficulty = #{record.difficulty,jdbcType=INTEGER},
@@ -222,9 +211,6 @@
     <set>
       <if test="question != null">
         Question = #{question,jdbcType=VARCHAR},
-      </if>
-      <if test="score != null">
-        Score = #{score,jdbcType=INTEGER},
       </if>
       <if test="subject != null">
         Subject = #{subject,jdbcType=VARCHAR},
@@ -247,7 +233,6 @@
   <update id="updateByPrimaryKey" parameterType="com.oxy.model.SAQ">
     update saq
     set Question = #{question,jdbcType=VARCHAR},
-      Score = #{score,jdbcType=INTEGER},
       Subject = #{subject,jdbcType=VARCHAR},
       Chapter = #{chapter,jdbcType=VARCHAR},
       Difficulty = #{difficulty,jdbcType=INTEGER},

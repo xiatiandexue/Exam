@@ -10,7 +10,6 @@ import lombok.Setter;
 public class UpdateSaqVO {
 	private Integer saqid;
 	private String question;
-	private Integer score;
 	private String subject;
 	private String chapter;
 	private Integer difficulty;
@@ -20,7 +19,6 @@ public class UpdateSaqVO {
 	public SAQ toSAQ(){
 		SAQ saq = new SAQ();
 		saq.setSaqid(saqid);
-		saq.setScore(score);;
 		saq.setQuestion(question);
 		saq.setSubject(subject);
 		saq.setChapter(chapter);

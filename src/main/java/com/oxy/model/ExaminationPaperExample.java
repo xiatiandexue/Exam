@@ -693,6 +693,246 @@ public class ExaminationPaperExample {
             addCriterion("CreateUser not between", value1, value2, "createuser");
             return (Criteria) this;
         }
+
+        public Criteria andTotalselectIsNull() {
+            addCriterion("TotalSelect is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalselectIsNotNull() {
+            addCriterion("TotalSelect is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalselectEqualTo(Integer value) {
+            addCriterion("TotalSelect =", value, "totalselect");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalselectNotEqualTo(Integer value) {
+            addCriterion("TotalSelect <>", value, "totalselect");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalselectGreaterThan(Integer value) {
+            addCriterion("TotalSelect >", value, "totalselect");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalselectGreaterThanOrEqualTo(Integer value) {
+            addCriterion("TotalSelect >=", value, "totalselect");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalselectLessThan(Integer value) {
+            addCriterion("TotalSelect <", value, "totalselect");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalselectLessThanOrEqualTo(Integer value) {
+            addCriterion("TotalSelect <=", value, "totalselect");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalselectIn(List<Integer> values) {
+            addCriterion("TotalSelect in", values, "totalselect");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalselectNotIn(List<Integer> values) {
+            addCriterion("TotalSelect not in", values, "totalselect");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalselectBetween(Integer value1, Integer value2) {
+            addCriterion("TotalSelect between", value1, value2, "totalselect");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalselectNotBetween(Integer value1, Integer value2) {
+            addCriterion("TotalSelect not between", value1, value2, "totalselect");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalsaqIsNull() {
+            addCriterion("TotalSAQ is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalsaqIsNotNull() {
+            addCriterion("TotalSAQ is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalsaqEqualTo(Integer value) {
+            addCriterion("TotalSAQ =", value, "totalsaq");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalsaqNotEqualTo(Integer value) {
+            addCriterion("TotalSAQ <>", value, "totalsaq");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalsaqGreaterThan(Integer value) {
+            addCriterion("TotalSAQ >", value, "totalsaq");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalsaqGreaterThanOrEqualTo(Integer value) {
+            addCriterion("TotalSAQ >=", value, "totalsaq");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalsaqLessThan(Integer value) {
+            addCriterion("TotalSAQ <", value, "totalsaq");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalsaqLessThanOrEqualTo(Integer value) {
+            addCriterion("TotalSAQ <=", value, "totalsaq");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalsaqIn(List<Integer> values) {
+            addCriterion("TotalSAQ in", values, "totalsaq");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalsaqNotIn(List<Integer> values) {
+            addCriterion("TotalSAQ not in", values, "totalsaq");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalsaqBetween(Integer value1, Integer value2) {
+            addCriterion("TotalSAQ between", value1, value2, "totalsaq");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalsaqNotBetween(Integer value1, Integer value2) {
+            addCriterion("TotalSAQ not between", value1, value2, "totalsaq");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelectscoreIsNull() {
+            addCriterion("SelectScore is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelectscoreIsNotNull() {
+            addCriterion("SelectScore is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelectscoreEqualTo(Integer value) {
+            addCriterion("SelectScore =", value, "selectscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelectscoreNotEqualTo(Integer value) {
+            addCriterion("SelectScore <>", value, "selectscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelectscoreGreaterThan(Integer value) {
+            addCriterion("SelectScore >", value, "selectscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelectscoreGreaterThanOrEqualTo(Integer value) {
+            addCriterion("SelectScore >=", value, "selectscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelectscoreLessThan(Integer value) {
+            addCriterion("SelectScore <", value, "selectscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelectscoreLessThanOrEqualTo(Integer value) {
+            addCriterion("SelectScore <=", value, "selectscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelectscoreIn(List<Integer> values) {
+            addCriterion("SelectScore in", values, "selectscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelectscoreNotIn(List<Integer> values) {
+            addCriterion("SelectScore not in", values, "selectscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelectscoreBetween(Integer value1, Integer value2) {
+            addCriterion("SelectScore between", value1, value2, "selectscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelectscoreNotBetween(Integer value1, Integer value2) {
+            addCriterion("SelectScore not between", value1, value2, "selectscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaqscoreIsNull() {
+            addCriterion("SAQScore is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaqscoreIsNotNull() {
+            addCriterion("SAQScore is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaqscoreEqualTo(Integer value) {
+            addCriterion("SAQScore =", value, "saqscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaqscoreNotEqualTo(Integer value) {
+            addCriterion("SAQScore <>", value, "saqscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaqscoreGreaterThan(Integer value) {
+            addCriterion("SAQScore >", value, "saqscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaqscoreGreaterThanOrEqualTo(Integer value) {
+            addCriterion("SAQScore >=", value, "saqscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaqscoreLessThan(Integer value) {
+            addCriterion("SAQScore <", value, "saqscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaqscoreLessThanOrEqualTo(Integer value) {
+            addCriterion("SAQScore <=", value, "saqscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaqscoreIn(List<Integer> values) {
+            addCriterion("SAQScore in", values, "saqscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaqscoreNotIn(List<Integer> values) {
+            addCriterion("SAQScore not in", values, "saqscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaqscoreBetween(Integer value1, Integer value2) {
+            addCriterion("SAQScore between", value1, value2, "saqscore");
+            return (Criteria) this;
+        }
+
+        public Criteria andSaqscoreNotBetween(Integer value1, Integer value2) {
+            addCriterion("SAQScore not between", value1, value2, "saqscore");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

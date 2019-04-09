@@ -25,8 +25,6 @@ public class AddSelectVO {
 	private String choicefour;
 	@NotBlank
 	private String answer;
-	@NotNull
-	private Integer score;
 	@NotBlank
 	private String subject;
 	@NotBlank
@@ -44,7 +42,6 @@ public class AddSelectVO {
 		select.setChoicethree(choicethree);
 		select.setChoicefour(choicefour);
 		select.setAnswer(answer);
-		select.setScore(score);
 		select.setSubject(subject);
 		select.setChapter(chapter);
 		select.setDifficulty(difficulty);

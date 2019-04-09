@@ -11,6 +11,10 @@
     <result column="Score" jdbcType="INTEGER" property="score" />
     <result column="Subject" jdbcType="VARCHAR" property="subject" />
     <result column="CreateUser" jdbcType="VARCHAR" property="createuser" />
+    <result column="TotalSelect" jdbcType="INTEGER" property="totalselect" />
+    <result column="TotalSAQ" jdbcType="INTEGER" property="totalsaq" />
+    <result column="SelectScore" jdbcType="INTEGER" property="selectscore" />
+    <result column="SAQScore" jdbcType="INTEGER" property="saqscore" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -71,7 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    PaperID, QuestionIds, Name, SAQIds, SelectNum, SAQNum, Score, Subject, CreateUser
+    PaperID, QuestionIds, Name, SAQIds, SelectNum, SAQNum, Score, Subject, CreateUser, 
+    TotalSelect, TotalSAQ, SelectScore, SAQScore
   </sql>
   <select id="selectByExample" parameterType="com.oxy.model.ExaminationPaperExample" resultMap="BaseResultMap">
     select
@@ -106,12 +111,14 @@
   <insert id="insert" parameterType="com.oxy.model.ExaminationPaper">
     insert into examinationpaper (PaperID, QuestionIds, Name, 
       SAQIds, SelectNum, SAQNum, 
-      Score, Subject, CreateUser
-      )
+      Score, Subject, CreateUser, 
+      TotalSelect, TotalSAQ, SelectScore, 
+      SAQScore)
     values (#{paperid,jdbcType=INTEGER}, #{questionids,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{saqids,jdbcType=VARCHAR}, #{selectnum,jdbcType=INTEGER}, #{saqnum,jdbcType=INTEGER}, 
-      #{score,jdbcType=INTEGER}, #{subject,jdbcType=VARCHAR}, #{createuser,jdbcType=VARCHAR}
-      )
+      #{score,jdbcType=INTEGER}, #{subject,jdbcType=VARCHAR}, #{createuser,jdbcType=VARCHAR}, 
+      #{totalselect,jdbcType=INTEGER}, #{totalsaq,jdbcType=INTEGER}, #{selectscore,jdbcType=INTEGER}, 
+      #{saqscore,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.oxy.model.ExaminationPaper">
     insert into examinationpaper
@@ -143,6 +150,18 @@
       <if test="createuser != null">
         CreateUser,
       </if>
+      <if test="totalselect != null">
+        TotalSelect,
+      </if>
+      <if test="totalsaq != null">
+        TotalSAQ,
+      </if>
+      <if test="selectscore != null">
+        SelectScore,
+      </if>
+      <if test="saqscore != null">
+        SAQScore,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="paperid != null">
@@ -171,6 +190,18 @@
       </if>
       <if test="createuser != null">
         #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="totalselect != null">
+        #{totalselect,jdbcType=INTEGER},
+      </if>
+      <if test="totalsaq != null">
+        #{totalsaq,jdbcType=INTEGER},
+      </if>
+      <if test="selectscore != null">
+        #{selectscore,jdbcType=INTEGER},
+      </if>
+      <if test="saqscore != null">
+        #{saqscore,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -210,6 +241,18 @@
       <if test="record.createuser != null">
         CreateUser = #{record.createuser,jdbcType=VARCHAR},
       </if>
+      <if test="record.totalselect != null">
+        TotalSelect = #{record.totalselect,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalsaq != null">
+        TotalSAQ = #{record.totalsaq,jdbcType=INTEGER},
+      </if>
+      <if test="record.selectscore != null">
+        SelectScore = #{record.selectscore,jdbcType=INTEGER},
+      </if>
+      <if test="record.saqscore != null">
+        SAQScore = #{record.saqscore,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -225,7 +268,11 @@
       SAQNum = #{record.saqnum,jdbcType=INTEGER},
       Score = #{record.score,jdbcType=INTEGER},
       Subject = #{record.subject,jdbcType=VARCHAR},
-      CreateUser = #{record.createuser,jdbcType=VARCHAR}
+      CreateUser = #{record.createuser,jdbcType=VARCHAR},
+      TotalSelect = #{record.totalselect,jdbcType=INTEGER},
+      TotalSAQ = #{record.totalsaq,jdbcType=INTEGER},
+      SelectScore = #{record.selectscore,jdbcType=INTEGER},
+      SAQScore = #{record.saqscore,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -257,6 +304,18 @@
       <if test="createuser != null">
         CreateUser = #{createuser,jdbcType=VARCHAR},
       </if>
+      <if test="totalselect != null">
+        TotalSelect = #{totalselect,jdbcType=INTEGER},
+      </if>
+      <if test="totalsaq != null">
+        TotalSAQ = #{totalsaq,jdbcType=INTEGER},
+      </if>
+      <if test="selectscore != null">
+        SelectScore = #{selectscore,jdbcType=INTEGER},
+      </if>
+      <if test="saqscore != null">
+        SAQScore = #{saqscore,jdbcType=INTEGER},
+      </if>
     </set>
     where PaperID = #{paperid,jdbcType=INTEGER}
   </update>
@@ -269,7 +328,11 @@
       SAQNum = #{saqnum,jdbcType=INTEGER},
       Score = #{score,jdbcType=INTEGER},
       Subject = #{subject,jdbcType=VARCHAR},
-      CreateUser = #{createuser,jdbcType=VARCHAR}
+      CreateUser = #{createuser,jdbcType=VARCHAR},
+      TotalSelect = #{totalselect,jdbcType=INTEGER},
+      TotalSAQ = #{totalsaq,jdbcType=INTEGER},
+      SelectScore = #{selectscore,jdbcType=INTEGER},
+      SAQScore = #{saqscore,jdbcType=INTEGER}
     where PaperID = #{paperid,jdbcType=INTEGER}
   </update>
 </mapper>

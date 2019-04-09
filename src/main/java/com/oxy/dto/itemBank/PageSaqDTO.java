@@ -8,7 +8,6 @@ import lombok.Data;
 public class PageSaqDTO {
 	private Integer saqid;
 	private String question;
-	private Integer score;
 	private String subject;
 	private String chapter;
 	private Integer difficulty;

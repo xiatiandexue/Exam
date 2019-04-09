@@ -5,8 +5,6 @@ public class SAQ {
 
     private String question;
 
-    private Integer score;
-
     private String subject;
 
     private String chapter;
@@ -31,14 +29,6 @@ public class SAQ {
 
     public void setQuestion(String question) {
         this.question = question == null ? null : question.trim();
-    }
-
-    public Integer getScore() {
-        return score;
-    }
-
-    public void setScore(Integer score) {
-        this.score = score;
     }
 
     public String getSubject() {

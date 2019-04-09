@@ -31,6 +31,7 @@ public class SelectServiceImpl implements SelectService{
 	public PageInfo<PageSelectDTO> page(PageSelectVO vo) {
 		PageHelper.startPage(vo.getPageNum(),vo.getPageSize());
 		PageSelectDTO dto = PageSelectDTO.builder().question(vo.getQuestion()).subject(vo.getSubject()).chapter(vo.getChapter()).build();
+		System.out.println(dto);
 		PageInfo<PageSelectDTO> pageInfo = new PageInfo<>(extSelectMapper.listPage(dto));
 		return pageInfo;
 	}

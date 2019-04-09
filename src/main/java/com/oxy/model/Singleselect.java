@@ -15,8 +15,6 @@ public class Singleselect {
 
     private String answer;
 
-    private Integer score;
-
     private String subject;
 
     private String chapter;
@@ -79,14 +77,6 @@ public class Singleselect {
 
     public void setAnswer(String answer) {
         this.answer = answer == null ? null : answer.trim();
-    }
-
-    public Integer getScore() {
-        return score;
-    }
-
-    public void setScore(Integer score) {
-        this.score = score;
     }
 
     public String getSubject() {
